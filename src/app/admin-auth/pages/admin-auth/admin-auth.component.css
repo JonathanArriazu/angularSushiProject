@@ -1,0 +1,12 @@
+.signup{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 80px;
+    color: #EF8F18;
+}
+
+.signup-link, .register-link {
+    cursor: pointer;
+    margin-top: 20px;
+    color: orange;
+}

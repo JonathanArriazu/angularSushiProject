@@ -1,0 +1,60 @@
+import { EventEmitter, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { Login } from '../interfaces/data.interfaces';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AdminService {
+  /* isAdminLoggedIn = new BehaviorSubject<boolean>(false); */
+  isAdminLoggedIn : boolean = false;
+   /* isLoginError = new BehaviorSubject<boolean>(false); */
+  isLoginError : boolean = false;
+  admin = {
+    "admin" : true
+  }
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+ /*  userSignUp(data: SignUp) {
+    this.http
+      .post('http://localhost:3000/admin', data, { observe: 'response' })
+      .subscribe((result) => {
+        this.isAdminLoggedIn.next(true);
+        localStorage.setItem('admin', JSON.stringify(result.body));
+        this.router.navigate(['admin-home']);
+      });
+  } */
+  reloadAdmin() {
+    if (localStorage.getItem('admin')) {
+      /* this.isAdminLoggedIn.next(true); */
+      this.isAdminLoggedIn = true;
+      this.router.navigate(['admin-home']);
+    }
+  }
+
+  userLogin(data: Login) {
+    //api call code will be there
+    this.http
+      .get(`http://localhost:3000/admin?email=${data.email}&password=${data.password}`, {observe: 'response'})
+      .subscribe((result: any) => {
+/*         console.log(result.body[0].hasOwnProperty('admin')); */
+        /* if( result.body.length){ */
+        if( result.body[0].hasOwnProperty('admin') ){
+          console.log(result.body[0].hasOwnProperty('admin'));
+          localStorage.setItem('admin', JSON.stringify(result.body));
+          this.router.navigate(['admin-home']);
+        } /* else if(result.body[0].hasOwnProperty('user')) {
+          console.log(result.body[0].hasOwnProperty('user'));
+          localStorage.setItem('user', JSON.stringify(result.body));
+          this.router.navigate(['']);
+        } */ else {
+          /* this.isLoginError.emit(true); */
+          this.isLoginError = true;
+        }
+      })
+  }
+}

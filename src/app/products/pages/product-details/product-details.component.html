@@ -1,0 +1,14 @@
+<div class="row product-datails" *ngIf="productData">
+    <div class="col-sm-6">
+        <img src="{{ productData.image }}" alt="" class="product-image">
+    </div>
+    <div class="col-sm-6">
+        <div class="details">
+            <h1>{{ productData.name}}</h1>
+            <h3>Precio: ${{ productData.price }}</h3>
+            <h6>Categoria: {{ productData.category}}</h6>
+            <p>Descripcion: {{ productData.description }}</p>
+        </div>
+    </div>
+</div>
+

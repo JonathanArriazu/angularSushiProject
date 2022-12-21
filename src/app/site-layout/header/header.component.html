@@ -1,0 +1,117 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="nabar-brand" href="">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a routerLink="/details/1">asd</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+ -->
+
+<header class="section-header">
+    <section class="header-main border-bottom">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center ">
+                <div class="col-lg-9 col-xl-9 col-sm-6 col-md-8 col-4">
+                    <a routerLink="/main">
+
+                        <img src="https://makisushi.dk/wp-content/uploads/2020/09/Logo_1200x630.jpg" alt="logo" class="header-icon text-white"/> 
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-xl-3 col-sm-6 col-md-4 col-8 d-flex align-items-center justify-content-around login-register" [ngSwitch]="menuType">
+                    <div class="container-fluid d-flex justify-content-between" *ngSwitchCase="'default'">
+                        <a class="nav-link nav-user-img" routerLink="/main">
+                        <span class="register">HOME</span>
+                        </a>
+                        <a class="nav-link nav-user-img" routerLink="/admin-auth">              
+                            <span class="login">INICIAR SESION</span>
+                        </a>
+                    </div>
+
+                    <div class="container-fluid d-flex justify-content-between" *ngSwitchCase="'admin'">
+                        <a class="nav-link nav-user-img" routerLink="/admin-add-product">
+                        <span class="register">Agregar Producto</span>
+                        </a>
+                        <a class="nav-link nav-user-img" routerLink="/admin-auth">
+                            <span class="register">Lista de Productos</span>
+                        </a>
+                        <a class="nav-link nav-user-img" routerLink="/admin-auth">
+                            <span class="register" (click)="logout()">Salir</span>
+                        </a>
+                        <!-- <a class="user-name">{{ adminName | titlecase }}</a> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="d-flex justify-content-center mt-3">
+      <a routerLink="/main">
+        <img class="d-none d-sm-block d-sm-none d-md-block maki-menu-icon" src="../../../assets/2Logo_1200x630.jpg" alt="">
+      </a>
+    </div>
+    <hr class="d-none d-sm-block d-sm-none d-md-block mt-3 mb-1"/>
+    <nav class="navbar navbar-expand-md navbar-main border-bottom mt-0">
+        <div class="container-fluid">
+            <form class="d-md-none my-2">
+                <div class="input-group">
+                  <img class="maki-menu-icon" src="../../../assets/2Logo_1200x630.jpg" alt="">
+                </div>
+            
+            </form> <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dropdown6" aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
+
+            <div class="navbar-collapse collapse" id="dropdown6">
+                <ul class="container-fluid navbar-nav mr-auto d-flex justify-content-between">
+                  <li class="nav-item">
+                    <a href=""></a>
+                    <a class="nav-link item text-decoration-none" routerLink="/main">
+                      <p class="font-weight-bold">HOME</p>
+                    </a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link item text-decoration-none" routerLink="/main">          
+                      <p>MENÚ</p>
+                    </a> 
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link item text-decoration-none" routerLink="/main">
+                      <p>PROMOCIONES</p>
+                    </a> 
+                  </li>
+                  <li class="nav-item"> 
+                    <a class="nav-link item text-decoration-none" routerLink="/main">
+                      <p>SUCURSALES</p>
+                    </a>
+                  </li>
+                  <li class="nav-item"> 
+                    <a class="nav-link item text-decoration-none" routerLink="/main">
+                      <p>CONTACTO</p>
+                    </a> 
+                  </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+

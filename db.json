@@ -1,0 +1,79 @@
+{
+  "admin": [
+    {
+      "name": "jonathan",
+      "email": "joni.arriazu2@gmail.com",
+      "password": "123456",
+      "id": 1,
+      "admin": true
+    },
+    {
+      "name": "Nciolas Arriazu",
+      "email": "nico.arriazu2@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "name": "Jonathan",
+      "email": "vale.alexis18@gmail.com",
+      "password": "123456",
+      "id": 3,
+      "user": true
+    },
+    {
+      "name": "jonathan arriazuuuu",
+      "email": "joniiii@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "Jonathan",
+      "email": "vale.alexis18@gmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "name": "Jonathan",
+      "email": "joni.arriazu@gmail.com",
+      "password": "123456",
+      "id": 6
+    }
+  ],
+  "products": [
+    {
+      "name": "Bahamasss",
+      "price": "680",
+      "category": "URAMAKIS - ROLLS",
+      "description": "Roll relleno de Palta y Philadelphia envuelto en Salmón Rosado.",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza8-510x340.jpg",
+      "id": 1,
+      "popular": true
+    },
+    {
+      "name": "New Zeland",
+      "price": "682",
+      "category": "URAMAKIS - ROLLS",
+      "description": "Roll relleno de Salmón y Philadelphia envuelto en Palta.",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza6-510x340.jpg",
+      "id": 2,
+      "popular": true
+    },
+    {
+      "name": "Chop Suey",
+      "price": "670",
+      "category": "WOKBOX",
+      "description": "Exquisita combinacion de verduras al wok saborizado a con Salsa de Soja.  Zanahoria, Morron, Zapallito, Cebolla y Brotes de Soja. Adicionales Pollo, Lomo o Langostinos.",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/chop-suey-1-510x340.jpg",
+      "id": 4,
+      "popular": true
+    },
+    {
+      "name": "Vegeta Ultra Ego",
+      "price": "9999999",
+      "category": "Dragon Ball Z",
+      "description": "Vegeta el segundo mejor personaje de Dragon Ball Z",
+      "image": "https://www.xtrafondos.com/wallpapers/vertical/dragon-ball-super-vegeta-ultra-ego-10712.jpg",
+      "id": 6
+    }
+  ]
+}
