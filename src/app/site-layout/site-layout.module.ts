@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AuthGuard } from '../admin-auth/guards/auth.guard';
+import { NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -16,6 +17,8 @@ import { AuthGuard } from '../admin-auth/guards/auth.guard';
   ],
   imports: [
     CommonModule,
+    NgbCollapseModule,
+    NgbDropdownModule,
     AppRoutingModule
   ],
   exports: [

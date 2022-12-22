@@ -3,6 +3,88 @@ h1{
     text-align: center;
 }
 
+
 .add-product{
     text-align: center;
+}
+
+.form-input{
+    color: black;
+}
+
+.form-button{
+    border-radius: 1px;
+    border: 1px solid black;
+    background-color: #EF8F18;
+    font-weight: bold;
+}
+
+.description{
+    height: 100px;
+}
+
+@media (min-width: 576px) {
+    .form-input{
+        font-size: 18px ;
+        height: 43px;
+    }
+    .common-form{
+        width: 60%;
+    }
+    .form-button{
+        height: 35px;
+        font-size: 18px;
+        border-radius: 1px;
+        border: 1px solid #EF8F18;
+        background-color: #EF8F18;
+    }
+
+    .description{
+        height: 120px;
+    }
+}
+    
+@media (min-width: 768px) {
+  
+}
+    
+@media (min-width: 992px) {
+    .form-input{
+        font-size: 20px ;
+        height: 50px;
+    }
+
+    .common-form{
+        width: 52%;
+    }
+
+    .form-button{
+        height: 40px;
+        font-size: 20px;
+        border-radius: 1px;
+        border: 1px solid #EF8F18;
+        background-color: #EF8F18;
+    }
+    .description{
+        height: 100px;
+    }
+}
+    
+@media (min-width: 1200px) {
+    .common-form{
+        width: 45%;
+    }
+    .description{
+        height: 100px;
+    }
+    
+}
+    
+    @media (min-width: 1400px) {
+        .common-form{
+            width: 40%;
+        }
+        .description{
+            height: 100px;
+        }
 }

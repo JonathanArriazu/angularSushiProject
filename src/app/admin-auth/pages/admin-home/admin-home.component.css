@@ -1,4 +1,5 @@
 table{
+    align-items: center;
     text-align: left;
     color: black;
     border-collapse: collapse;
@@ -17,4 +18,43 @@ img{
 
 .adjust-update-link{
     margin-left: 10px;
+}
+
+.description{
+    max-width: 250px;
+}
+
+.delete-icon, .edit-icon{
+    color: #EF8F18;
+}
+
+@media (min-width: 576px) {
+    .description{
+        max-width: 350px;
+    }
+}
+    
+@media (min-width: 768px) {
+    .description{
+        max-width: 450px;
+    }
+}
+    
+@media (min-width: 992px) {
+    .description{
+        max-width: 550px;
+    }
+}
+    
+@media (min-width: 1200px) {
+    .description{
+        max-width: 650px;
+    }
+    
+}
+    
+    @media (min-width: 1400px) {
+        .description{
+            max-width: 750px;
+        }
 }

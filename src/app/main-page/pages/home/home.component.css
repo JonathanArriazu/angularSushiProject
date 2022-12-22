@@ -1,5 +1,6 @@
 .product-header-img{
     object-fit: contain;
+    background-color: black;
     height: 600px;
     width: 100%;
 }
@@ -41,4 +42,22 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
+}
+
+.cards-container{
+    margin: 20px;
+}
+
+.trendy-card-footer {
+    border-top: 1px solid #ddd;
+}
+
+.card-body{
+    text-align: center;
+    font-weight: bold;
+}
+
+.product-link{
+    text-decoration: none;
+    color: #EF8F18;
 }

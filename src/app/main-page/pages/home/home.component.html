@@ -12,23 +12,24 @@
 		</div>
 	</ng-template>
 </ngb-carousel>
-<div class="product-list-wrapper">
-	<h1>trendy Products</h1>
-	<div class="row">
-		<div class="col-sm-3" *ngFor="let item of trendyProducts">
-			<div class="product-item">
-				<img src="{{ item.image }}" alt="">
+ 
+<h1 class="mt-5 mb-5">Productos Destacados</h1>
 
-				<div class="product-details">
-					<h6 class="name-head">{{ item.name }}</h6>
-					<div class="product-price">
-						<h6>Precio: {{ item.price }}</h6>
-					</div>
-				</div>
-				<div class="product-footer">
-					<a routerLink="/details/{{ item.id }}">View Details</a>
-				</div>
-			</div>
-		</div>
+<div class="cards-container row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let item of trendyProducts">
+    <div class="card">
+      <img src="{{ item.image }}" class="card-img-top"
+        alt="Hollywood Sign on The Hill" />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <p class="card-text">
+			Precio: $ {{ item.price }}
+        </p>
 	</div>
+	<div class="card-footer text-center">
+		<a class="product-link" routerLink="/details/{{ item.id }}">View Details</a>
+	</div>
+    </div>
+  </div>
 </div>
+

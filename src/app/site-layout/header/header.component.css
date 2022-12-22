@@ -1,80 +1,25 @@
-.nav {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .nav h1 {
-    color: blueviolet;
-    margin: 0;
-    font-size: 40px;
-  }
-  
-  .nav ul {
-    display: inline-flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav li {
-    padding-left: 15px;
-    padding-top: 15px;
-  }
-  
-  .nav li a {
-    text-decoration: none;
-    color: blueviolet;
-  }
-  
-  .nav .nav-search {
-    flex: 1;
-    display: flex;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5px;
-  }
-  
-  .nav .nav-search input {
-    flex: 1;
-    color: blueviolet;
-    border: 1px solid blueviolet;
-    height: 39px;
-    border-right: 0px;
-  }
-  
-  .nav .nav-search button {
-    color: blueviolet;
-    border: 1px solid blueviolet;
-    height: 39px;
-    border-left: 0px;
-  }
-  
-  h1 a{
-    color: blueviolet;
-    text-decoration: none;
-  }
-  
-  .user-name {
-    color: orange!important;
-  }
-  
-  .logout {
-    cursor: pointer;
-  }
+.user-name {
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  color: orange !important;
+}
 
+.logout {
+  cursor: pointer;
+}
 
- /*  -------------------------------------------------- */
-
- .header-main {
+.header-main {
   position: relative;
   padding-top: 7px;
   padding-bottom: 7px;
-  background-color: #323232
+  background-color: #323232;
 }
 
 .header-icon {
-color: white;
-width: 60px;
+  color: white;
+  width: 70px;
 }
 
 /* .search-bar-input {
@@ -117,7 +62,7 @@ width: 60px;
 } */
 
 /* .searchIcon {
-background-color: black;
+  background-color: black;
 height: 45px;
 padding-top: 8px;
 width: 40px;
@@ -128,23 +73,55 @@ border-bottom: 1px solid white;
 border-left: none;
 } */
 
+/* .responsive-search {
+  color: red;
+} */
+
+/* .search-bar-input::placeholder {
+color: white;
+} */
+
+/* .search-form {
+  border: 1px solid #ffffff !important
+} 
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+   box-shadow: none !important;
+} */
+
 .login-register {
   padding: 0px !important;
 }
 
+.add-product,
+.product-list {
+  color: white;
+  padding: 0 !important;
+}
+
 .register {
-color: white;
-font-size: 9px;
-padding: 0 !important;
+  color: black;
+  padding: 0 !important;
+}
+
+.home{
+  font-size: 9px;
+  color: white;
+  padding: 0 !important;
 }
 
 .login {
-color: white;
-font-size: 9px;
-padding: 0 !important;
+  color: white;
+  font-size: 9px;
+  padding: 0 !important;
 }
 
 .nav-link {
+  font-size: 15px;
   font-weight: bold;
   padding: 0px !important;
   color: black !important;
@@ -157,33 +134,12 @@ padding: 0 !important;
   color: #82849f;
 }
 
-/* .search-bar-input::placeholder {
-color: white;
-} */
-
-
-/* .search-form {
-  border: 1px solid #ffffff !important
-} */
-
-.form-control:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-   box-shadow: none !important;
-}
-
 .navbar {
   margin-top: 5px;
 }
 
 .navbar-main {
-  background-color: #fff
-}
-
-.responsive-search {
-  color: red;
+  background-color: #fff;
 }
 
 .navbar-toggler {
@@ -193,10 +149,8 @@ color: white;
   height: 45px;
 }
 
-
-
 .navbar-toggler-icon {
-  background-image: url(https://img.icons8.com/ios/50/000000/menu.png)
+  background-image: url(https://img.icons8.com/ios/50/000000/menu.png);
 }
 
 .navbar-collapse {
@@ -212,28 +166,6 @@ color: white;
   border: none;
 }
 
-.nav-link {
-  font-weight: bold;
-  padding: 0px !important;
-  color: black !important;
-}
-
-.navbar-right-top .nav-item .nav-link {
-  padding: 13px 20px;
-  font-size: 16px;
-  line-height: 2;
-  color: #82849f;
-}
-
-.item-sale {
-  font-weight: bold;
-  color: #ff0000;
-}
-
-.item-sale:hover {
-  color: #ff0000;
-}
-
 .item {
   font-weight: bold;
   color: #000;
@@ -243,168 +175,101 @@ color: white;
   color: black;
 }
 
-.sale {
-  color: red;
+.maki-menu-icon {
+  height: auto;
+  width: 140px;
 }
-
-
-/* FOOTER */
-footer p, h5{
-  color: white;
-}
-
-.bi{
-  color: white;
-}
-
-.footer {
-  background-color:  #323232;
-}
-
-
-.footercopyrigh {
-  background-color: #252525;
-} 
-
-.ulredes {
-  display: flex;
-  justify-content: center;
-}
-
-.social-items {
-  display: flex;
-  justify-content: center;
-}
-
-.a-social-item {
-  margin-left: 17px;
-}
-
-.footer-img {
-  width: 215px;
-}
-
-.footer-middle-col, .footer-end-col{
-  margin-top: 0px;
-}
-
 
 @media (min-width: 576px) {
-.header-icon {
-  width: 65px;
-}
+  .header-icon {
+    width: 80px;
+  }
 
-.register {
-  font-size: 11px;
-}
+  .register {
+    font-size: 11px;
+  }
 
-.login {
-  font-size: 11px;
-}
+  .login {
+    font-size: 11px;
+  }
 
-.navbar {
-  margin-top: 5px;
-}
+  .navbar {
+    margin-top: 5px;
+  }
 
-.footer-img {
-  max-width: 85%;
-}
-
+  .maki-menu-icon {
+    height: auto;
+    width: 140px;
+  }
 }
 
 @media (min-width: 768px) {
-.header-icon {
-  width: 80px;
-}
+  .header-icon {
+    width: 90px;
+  }
 
-.register {
-  font-size: 12px;
-}
+  .register {
+    font-size: 12px;
+  }
 
-.login {
-  font-size: 12px;
-}
+  .login {
+    font-size: 12px;
+  }
 
-.navbar {
-  margin-top: 20px;
-}
+  .navbar {
+    margin-top: 20px;
+  }
 
-.footer-img {
-  max-width: 85%;
-  margin-bottom: 30px;
-}
-
-}
-
-.maki-menu-icon{
-  height: auto;
-  width: 125px;
+  .maki-menu-icon {
+    height: auto;
+    width: 180px;
+  }
 }
 
 @media (min-width: 992px) {
   .navbar {
-      margin-top: 20px;
-    }
+    margin-top: 20px;
+  }
 
-    .footer-img {
-      max-width: 100%;
-    }
-
-    .footer-middle-col, .footer-end-col{
-      margin-top: 25px;
-    }
-    
+  .maki-menu-icon {
+    height: auto;
+    width: 180px;
+  }
 }
 
 @media (min-width: 1200px) {
-.register {
-  font-size: 15px;
-}
+  .register {
+    font-size: 15px;
+  }
 
-.login {
-  font-size: 15px;
-}
+  .login {
+    font-size: 15px;
+  }
 
-.navbar {
-  margin-top: 20px;
-}
-
-.a-social-item {
-  margin-left: 0px;
-  margin-right: 20px;
-}
-.social-items {
-  display: flex;
-  justify-content: start;
-}
-
+  .navbar {
+    margin-top: 20px;
+  }
+  .maki-menu-icon {
+    height: auto;
+    width: 180px;
+  }
 }
 
 @media (min-width: 1400px) {
-.register {
-  font-size: 18px;
-}
+  .register {
+    font-size: 18px;
+  }
 
-.login {
-  font-size: 18px;
-}
+  .login {
+    font-size: 18px;
+  }
 
-.search-bar-input {
-  width: 600px;
-}
+  .navbar {
+    margin-top: 20px;
+  }
 
-.navbar {
-  margin-top: 20px;
+  .maki-menu-icon {
+    height: auto;
+    width: 180px;
+  }
 }
-
-.a-social-item {
-  margin-left: 0px;
-  margin-right: 30px;
-}
-.social-items {
-  display: flex;
-  justify-content: start;
-}
-}
-
-  

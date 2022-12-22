@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   adminName: string = '';
   userName: string = '';
+  isCollapsed = true;
 
   constructor( private router: Router ) { }
 
