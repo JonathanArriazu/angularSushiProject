@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminAuthComponent } from './pages/admin-auth/admin-auth.component';
+import { UserAuthComponent } from './pages/user-auth/user-auth.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { AdminAddProductComponent } from './pages/admin-add-product/admin-add-product.component';
 import { AdminUpdateProductComponent } from './pages/admin-update-product/admin-update-product.component';
@@ -12,8 +12,8 @@ const routes: Routes = [
     path:'',
     children: [
       {
-        path:'admin-auth',
-        component:AdminAuthComponent
+        path:'user-auth',
+        component:UserAuthComponent
       },
       {
         path:'admin-home',

@@ -26,12 +26,19 @@ export class HeaderComponent implements OnInit {
             this.menuType = 'admin';
             //console.log(this.menuType)
           }
-        } /* else if(localStorage.getItem('user')) {
+        } else if(localStorage.getItem('user')) {
             let userStore = localStorage.getItem('user');
-            let userData = userStore && JSON.parse(userStore);
+            let userData = userStore && JSON.parse(userStore)[0];
+            console.log(userData)
             this.userName = userData.name;
             this.menuType = 'user';
-          } */ else {
+          } else if(localStorage.getItem('newuser')) {
+            let userStore = localStorage.getItem('newuser');
+            let userData = userStore && JSON.parse(userStore);
+            console.log(userData)
+            this.userName = userData.name;
+            this.menuType = 'user';
+          } else {
           this.menuType = 'default';
           //console.log(this.menuType)
         }
@@ -41,11 +48,12 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('admin');
-    this.router.navigate(['/main']);
+    this.router.navigate(['/user-auth']);
   }
 
-  /*  userLogout(){
+   userLogout(){
     localStorage.removeItem('user');
-    this.router.navigate(['/']);
-  } */
+    localStorage.removeItem('newuser');
+    this.router.navigate(['/user-auth']);
+  }
 }

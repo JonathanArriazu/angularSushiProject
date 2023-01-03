@@ -1,51 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { Login } from 'src/app/interfaces/data.interfaces';
-import { AdminService } from 'src/app/services/admin.service';
-
-/* import { SignUp } from '../interfaces/data-interface'; */
+import { UserService } from 'src/app/services/users.service';
+import { SignUp } from '../../../interfaces/data.interfaces';
 
 @Component({
   selector: 'app-admin-auth',
-  templateUrl: './admin-auth.component.html',
-  styleUrls: ['./admin-auth.component.css']
+  templateUrl: './user-auth.component.html',
+  styleUrls: ['./user-auth.component.css']
 })
-export class AdminAuthComponent implements OnInit {
+export class UserAuthComponent implements OnInit {
 
-  showLogin: boolean= false;
+  showLogin: boolean= true;
   authError: string = '';
 
-  constructor( private admin: AdminService,
+  constructor( private user: UserService,
                private router: Router ) { }
 
   ngOnInit(): void {
-    this.admin.reloadAdmin();
+    this.user.reloadAdmin();
+    this.user.reloadUser();
   }
 
-/*   signUp( data: SignUp ): void {
-    this.admin.userSignUp(data)
-  } */
+  signUp( data: SignUp ): void {
+    this.user.userSignUp(data)
+  }
 
   login( data: Login ): void {
     this.authError='';
-    this.admin.userLogin(data)
+    this.user.userLogin(data)
     /* this.admin.isLoginError
         .subscribe(( isError )=> {
           if( isError ) {
             this.authError='Email or password is not correct'
           }
         }) */
-    if (this.admin.isLoginError = true) {
+    if (this.user.isLoginError = true) {
       this.authError='Email or password is not correct'
     }
   }
 
-/*   openLogin() {
+  openLogin() {
     this.showLogin= true;
   }
 
   openSignUp() {
     this.showLogin= false;
-  } */
+  }
 
 }

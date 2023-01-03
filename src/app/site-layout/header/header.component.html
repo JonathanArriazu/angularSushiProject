@@ -52,10 +52,33 @@
             <a class="nav-link nav-user-img" routerLink="/main">
               <span class="home">HOME</span>
             </a>
-            <a class="nav-link nav-user-img" routerLink="/admin-auth">
+            <a class="nav-link nav-user-img" routerLink="/user-auth">
               <span class="login">INICIAR SESION</span>
             </a>
           </div>
+
+          <div
+            class="container-fluid d-flex justify-content-between"
+            *ngSwitchCase="'user'"
+          >
+            <a class="nav-link nav-user-img" routerLink="/main">
+              <span class="add-product">Home</span>
+            </a>
+            <a class="nav-link nav-user-img" routerLink="/user-auth">
+              <span class="product-list">Carrito de compras</span>
+            </a>
+            <div ngbDropdown class="d-inline-block">
+              <a class="user-name" id="dropdownBasic1" ngbDropdownToggle>
+                {{ userName | titlecase }}
+              </a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a ngbDropdownItem class="nav-link" routerLink="/user-auth">
+                  <span class="register" (click)="userLogout()">Salir</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
 
           <div
             class="container-fluid d-flex justify-content-between"
@@ -64,7 +87,7 @@
             <a class="nav-link nav-user-img" routerLink="/admin-add-product">
               <span class="add-product">Agregar Producto</span>
             </a>
-            <a class="nav-link nav-user-img" routerLink="/admin-auth">
+            <a class="nav-link nav-user-img" routerLink="/user-auth">
               <span class="product-list">Lista de Productos</span>
             </a>
             <div ngbDropdown class="d-inline-block">
@@ -72,7 +95,7 @@
                 {{ adminName | titlecase }}
               </a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <a ngbDropdownItem class="nav-link" routerLink="/admin-auth">
+                <a ngbDropdownItem class="nav-link" routerLink="/user-auth">
                   <span class="register" (click)="logout()">Salir</span>
                 </a>
               </div>

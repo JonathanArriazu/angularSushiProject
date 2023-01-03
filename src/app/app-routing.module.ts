@@ -6,7 +6,7 @@ import { AuthGuard } from './admin-auth/guards/auth.guard';
 const routes: Routes = [
   {
     path: "",
-    loadChildren: () => import('./admin-auth/admin-auth.module').then( m => m.AdminAuthModule)
+    loadChildren: () => import('./admin-auth/user-auth.module').then( m => m.AdminAuthModule)
   },
   {
     path: "",

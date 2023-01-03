@@ -1,5 +1,5 @@
 {
-  "admin": [
+  "user": [
     {
       "name": "jonathan",
       "email": "joni.arriazu2@gmail.com",
@@ -8,35 +8,16 @@
       "admin": true
     },
     {
-      "name": "Nciolas Arriazu",
-      "email": "nico.arriazu2@gmail.com",
+      "name": "Joni",
+      "email": "joni.arriazu@gmail.com",
       "password": "123456",
       "id": 2
     },
     {
-      "name": "Jonathan",
-      "email": "vale.alexis18@gmail.com",
+      "name": "Cosito",
+      "email": "asd123@gmail.com",
       "password": "123456",
-      "id": 3,
-      "user": true
-    },
-    {
-      "name": "jonathan arriazuuuu",
-      "email": "joniiii@gmail.com",
-      "password": "123456",
-      "id": 4
-    },
-    {
-      "name": "Jonathan",
-      "email": "vale.alexis18@gmail.com",
-      "password": "123456",
-      "id": 5
-    },
-    {
-      "name": "Jonathan",
-      "email": "joni.arriazu@gmail.com",
-      "password": "123456",
-      "id": 6
+      "id": 3
     }
   ],
   "products": [

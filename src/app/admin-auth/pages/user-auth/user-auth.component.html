@@ -1,0 +1,63 @@
+<div class="user-auth">
+  <div *ngIf="!showLogin" class="signup">
+    <h1>Registro de usuario</h1>
+    <form
+      #userSignUp="ngForm"
+      (ngSubmit)="signUp(userSignUp.value)"
+      class="common-form"
+    >
+      <input
+        class="form-input"
+        type="text"
+        ngModel
+        name="name"
+        placeholder="Ingrese un nombre"
+      />
+      <input
+        class="form-input"
+        type="email"
+        ngModel
+        name="email"
+        placeholder="Ingrese un email"
+      />
+      <input
+        class="form-input"
+        type="password"
+        ngModel
+        name="password"
+        placeholder="Ingrese una contraseña segura"
+      />
+      <button class="form-button">Registrarse</button>
+      <p> ¿Ya tienes una cuenta? Ingresa <a class="signup-link" (click)="openLogin()">aqui</a> </p> 
+    </form>
+  </div>
+
+  <!-- Login -->
+    <div *ngIf="showLogin" class="signup">
+      <h1 class="mb-5">Ingrese sus datos</h1>
+      <p class="error-p">{{ authError }}</p>
+      <form
+        #adminLogin="ngForm"
+        (ngSubmit)="login(adminLogin.value)"
+        class="common-form"
+      >
+        <input
+          class="form-input"
+          type="email"
+          ngModel
+          name="email"
+          placeholder="Ingrese un email"
+        />
+        <input
+          class="form-input"
+          type="password"
+          ngModel
+          name="password"
+          placeholder="Ingrese una contraseña segura"
+        />
+        <button class="form-button">Ingresar</button>
+        <p>¿Todavia no tienes una cuenta? Registrate <a class="register-link" (click)="openSignUp()">aqui</a> </p> 
+      </form>
+    </div>
+
+</div>
