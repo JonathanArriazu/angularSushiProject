@@ -14,10 +14,16 @@
       "id": 2
     },
     {
-      "name": "Cosito",
+      "name": "asd123",
       "email": "asd123@gmail.com",
       "password": "123456",
       "id": 3
+    },
+    {
+      "name": "Bahamas",
+      "email": "vale.alexis18@gmail.com",
+      "password": "123456",
+      "id": 4
     }
   ],
   "products": [
