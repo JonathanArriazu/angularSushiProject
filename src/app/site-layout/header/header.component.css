@@ -193,6 +193,10 @@ color: white;
     font-size: 11px;
   }
 
+  .home{
+    font-size: 11px;
+  }
+
   .navbar {
     margin-top: 5px;
   }
@@ -213,6 +217,10 @@ color: white;
   }
 
   .login {
+    font-size: 12px;
+  }
+
+  .home{
     font-size: 12px;
   }
 
@@ -246,6 +254,10 @@ color: white;
     font-size: 15px;
   }
 
+  .home{
+    font-size: 15px;
+  }
+
   .navbar {
     margin-top: 20px;
   }
@@ -261,6 +273,10 @@ color: white;
   }
 
   .login {
+    font-size: 18px;
+  }
+
+  .home{
     font-size: 18px;
   }
 

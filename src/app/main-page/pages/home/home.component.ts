@@ -21,12 +21,11 @@ export class HomeComponent implements OnInit {
       .subscribe((data)=> {
         this.popularProducts=data;
       });
-      this.product.trendyProducts()
+      this.product.productList()
         .subscribe((data)=>{
           this.trendyProducts=data;
-
           this.trendyProducts=this.trendyProducts.filter((element) => {
-            return element.popular == true;
+            return element.popular === true;
           })
         })
   }

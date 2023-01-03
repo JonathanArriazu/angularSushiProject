@@ -28,7 +28,7 @@ export class AdminHomeComponent implements OnInit {
           this.productMessage='Producto eliminado correctamente';
           this.list();
         }
-        setTimeout(() => (this.productMessage = undefined), 3000)
+        setTimeout(() => (this.productMessage = undefined), 1500)
       })
   }
 

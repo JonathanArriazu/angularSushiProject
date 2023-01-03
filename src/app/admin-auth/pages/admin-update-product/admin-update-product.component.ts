@@ -40,6 +40,6 @@ export class AdminUpdateProductComponent implements OnInit {
         this.productMessage = 'Prodcuto actualizado correctamente';
       }
     });
-    setTimeout(() => (this.productMessage = undefined, this.router.navigate(['/admin-home'])), 3000)
+    setTimeout(() => (this.productMessage = undefined, this.router.navigate(['/admin-home'])), 1500)
   }
 }

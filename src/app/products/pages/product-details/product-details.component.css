@@ -9,6 +9,22 @@
     margin-bottom: 80px;
 }
 
-h1,h5,h6{
+h5,h6{
     margin-bottom: 20px;
+}
+
+.product-title{
+    font-weight: bold;
+}
+
+.product-price {
+    color: #EF8F18;
+}
+
+.divider{
+    background-color: #EF8F18;
+    height: 2px;
+    display: block;
+    margin: 0 0 1em;
+    width: 100%;
 }

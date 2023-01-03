@@ -25,7 +25,7 @@ export class AdminAddProductComponent implements OnInit {
         if(result){
           this.addProductMessage='Producto agregado correctamente';
         }
-        setTimeout(() => (this.addProductMessage = undefined, this.router.navigate(['/admin-home']) ), 3000)
+        setTimeout(() => (this.addProductMessage = undefined, this.router.navigate(['/admin-home']) ), 1500)
       })
   }
 

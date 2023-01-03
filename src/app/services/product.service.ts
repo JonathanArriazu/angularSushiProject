@@ -23,7 +23,7 @@ export class ProductService {
   }
 
   trendyProducts() : Observable<Product[]>{
-    return this.http.get<Product[]>('http://localhost:3000/products?_limit=4');
+    return this.http.get<Product[]>('http://localhost:3000/products?_limit=6');
   }
   
   addProduct(product: Product) : Observable<Product> {

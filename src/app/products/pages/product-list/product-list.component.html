@@ -1,0 +1,29 @@
+<h1 class="my-4">Menú</h1>
+<div class="container row">
+    <div class="col-lg-3">
+        <div class="list-group">
+            <a class="list-group-item" href="">URAMAKIS - ROLLS</a>
+            <a class="list-group-item" href="">WOKBOX</a>
+            <a class="list-group-item" href="">VEGGIE</a>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="cards-container row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngFor="let item of products">
+              <div class="card">
+                <img src="{{ item.image }}" class="card-img-top"
+                  alt="Hollywood Sign on The Hill" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.name }}</h5>
+                  <p class="card-text">
+                      Precio (por 15 unidades): $ {{ item.price }}
+                  </p>
+              </div>
+              <div class="card-footer text-center">
+                  <a class="product-link" routerLink="/details/{{ item.id }}">Ver detalles</a>
+              </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

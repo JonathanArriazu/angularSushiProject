@@ -15,7 +15,7 @@
  
 <h1 class="mt-5 mb-5">Productos Destacados</h1>
 
-<div class="cards-container row row-cols-1 row-cols-md-3 g-4">
+<div class="cards-container row row-cols-1 row-cols-md-3 g-4 justify-content-center">
   <div class="col" *ngFor="let item of trendyProducts">
     <div class="card">
       <img src="{{ item.image }}" class="card-img-top"
@@ -23,13 +23,17 @@
       <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
         <p class="card-text">
-			Precio: $ {{ item.price }}
+			Precio (por 15 unidades): $ {{ item.price }}
         </p>
 	</div>
 	<div class="card-footer text-center">
-		<a class="product-link" routerLink="/details/{{ item.id }}">View Details</a>
+		<a class="product-link" routerLink="/details/{{ item.id }}">Ver detalles</a>
 	</div>
     </div>
   </div>
+</div>
+
+<div class="text-center">
+	<button class="form-button" routerLink="/product-list">Ver más</button>
 </div>
 

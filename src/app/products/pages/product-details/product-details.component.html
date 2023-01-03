@@ -1,13 +1,21 @@
-<div class="row product-datails" *ngIf="productData">
+<div class="row container-fluid d-flex justify-content-center align-items-center product-datails" *ngIf="productData">
     <div class="col-sm-6">
         <img src="{{ productData.image }}" alt="" class="product-image">
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6 ">
         <div class="details">
-            <h1>{{ productData.name}}</h1>
-            <h3>Precio: ${{ productData.price }}</h3>
-            <h6>Categoria: {{ productData.category}}</h6>
-            <p>Descripcion: {{ productData.description }}</p>
+            <h1 class="product-title">{{ productData.name}}</h1>
+            <div class="divider"></div>
+            <div>
+                <p class="float-start me-2 fw-bold">Categoria: <p class="product-price">{{ productData.category}}</p><p>
+            </div>
+            <div>
+                <p class="float-start me-2 fw-bold">Precio (por 15 unidades): <p>${{ productData.price }}</p><p>
+            </div>
+            
+            <div>
+                <p>{{ productData.description }}</p>
+            </div>
         </div>
     </div>
 </div>
