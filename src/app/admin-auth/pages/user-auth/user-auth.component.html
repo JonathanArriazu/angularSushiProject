@@ -12,22 +12,38 @@
         ngModel
         name="name"
         placeholder="Ingrese un nombre"
+        minlength="2"
+        maxlength="20"
+        #name="ngModel"
+        required
       />
+      <p class="invalid-input"><span *ngIf="name.invalid && name.touched">Ingrese un nombre valido</span></p>
       <input
         class="form-input"
         type="email"
         ngModel
         name="email"
         placeholder="Ingrese un email"
+        minlength="2"
+        maxlength="20"
+        #email="ngModel"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
       />
+      <p class="invalid-input"><span *ngIf="email.invalid && email.touched">Ingrese un email valido</span></p>
       <input
         class="form-input"
         type="password"
         ngModel
         name="password"
         placeholder="Ingrese una contraseña segura"
+        minlength="2"
+        maxlength="20"
+        #password="ngModel"
+        required
       />
-      <button class="form-button">Registrarse</button>
+      <p class="invalid-input"><span *ngIf="password.invalid && password.touched">Ingrese una contraseña valida</span></p>
+      <button [disabled]="userSignUp.invalid" class="form-button">Registrarse</button>
       <p> ¿Ya tienes una cuenta? Ingresa <a class="signup-link" (click)="openLogin()">aqui</a> </p> 
     </form>
   </div>
@@ -37,8 +53,8 @@
       <h1 class="mb-5">Ingrese sus datos</h1>
       <p class="error-p">{{ authError }}</p>
       <form
-        #adminLogin="ngForm"
-        (ngSubmit)="login(adminLogin.value)"
+        #userLogin="ngForm"
+        (ngSubmit)="login(userLogin.value)"
         class="common-form"
       >
         <input
@@ -47,15 +63,25 @@
           ngModel
           name="email"
           placeholder="Ingrese un email"
+          minlength="2"
+          maxlength="20"
+          #email="ngModel"
+          required
         />
+        <p class="invalid-input"><span *ngIf="email.invalid && email.touched">Ingrese un email valido</span></p>
         <input
           class="form-input"
           type="password"
           ngModel
           name="password"
           placeholder="Ingrese una contraseña segura"
+          minlength="2"
+          maxlength="20"
+          #password="ngModel"
+          required
         />
-        <button class="form-button">Ingresar</button>
+        <p class="invalid-input"><span *ngIf="password.invalid && password.touched">Ingrese una contraseña valida</span></p>
+        <button [disabled]="userLogin.invalid" class="form-button">Ingresar</button>
         <p>¿Todavia no tienes una cuenta? Registrate <a class="register-link" (click)="openSignUp()">aqui</a> </p> 
       </form>
     </div>

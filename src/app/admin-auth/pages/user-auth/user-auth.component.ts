@@ -36,7 +36,7 @@ export class UserAuthComponent implements OnInit {
           }
         }) */
     if (this.user.isLoginError = true) {
-      this.authError='Email or password is not correct'
+      this.authError='Email o contraseña no son correctos'
     }
   }
 

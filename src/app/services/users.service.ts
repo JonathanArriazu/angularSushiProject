@@ -13,7 +13,7 @@ export class UserService {
   /* isAdminLoggedIn = new BehaviorSubject<boolean>(false); */
   isAdminLoggedIn : boolean = false;
    /* isLoginError = new BehaviorSubject<boolean>(false); */
-  isLoginError : boolean = false;
+  isLoginError = "" || false;
   isUserLoggedIn : boolean = false;
   admin = {
     "admin" : true
@@ -54,11 +54,13 @@ export class UserService {
       .subscribe((result: any) => {
 /*         console.log(result.body[0].hasOwnProperty('admin')); */
         /* if( result.body.length){ */
-        if( result.body[0].hasOwnProperty('admin') ){
+        if( result.body?.length && result.body[0].hasOwnProperty('admin') ){
+          this.isLoginError = false;
           console.log(result.body[0].hasOwnProperty('admin'));
           localStorage.setItem('admin', JSON.stringify(result.body));
           this.router.navigate(['admin-home']);
-        } else if(result.body.length) {
+        } else if(result.body?.length) {
+          this.isLoginError = false;
           console.log(result.body[0].hasOwnProperty('user'));
           localStorage.setItem('user', JSON.stringify(result.body));
           this.router.navigate(['/main']);

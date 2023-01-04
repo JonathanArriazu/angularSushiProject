@@ -19,6 +19,17 @@
     font-weight: bold;
 }
 
+.invalid-input{
+    color: red;
+    font-size: 12px;
+    margin-top: -20px;
+}
+
+button:disabled{
+    cursor: not-allowed;
+    background-color: grey;
+}
+
 @media (min-width: 576px) {
     .form-input{
         font-size: 18px ;
