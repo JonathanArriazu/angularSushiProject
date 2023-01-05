@@ -12,6 +12,12 @@
       "email": "joni.arriazu@gmail.com",
       "password": "123456",
       "id": 2
+    },
+    {
+      "name": "asdasd",
+      "email": "asd123@gmail.com",
+      "password": "123456",
+      "id": 3
     }
   ],
   "products": [

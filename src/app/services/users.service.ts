@@ -56,12 +56,10 @@ export class UserService {
         /* if( result.body.length){ */
         if( result.body?.length && result.body[0].hasOwnProperty('admin') ){
           this.isLoginError = false;
-          console.log(result.body[0].hasOwnProperty('admin'));
           localStorage.setItem('admin', JSON.stringify(result.body));
           this.router.navigate(['admin-home']);
         } else if(result.body?.length) {
           this.isLoginError = false;
-          console.log(result.body[0].hasOwnProperty('user'));
           localStorage.setItem('user', JSON.stringify(result.body));
           this.router.navigate(['/main']);
         } else {

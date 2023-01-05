@@ -6,6 +6,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AuthGuard } from '../admin-auth/guards/auth.guard';
 import { NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -19,6 +20,7 @@ import { NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap
     CommonModule,
     NgbCollapseModule,
     NgbDropdownModule,
+    FontAwesomeModule,
     AppRoutingModule
   ],
   exports: [

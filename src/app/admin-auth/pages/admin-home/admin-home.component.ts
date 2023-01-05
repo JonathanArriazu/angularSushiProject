@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faEdit, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { Product } from 'src/app/interfaces/data.interfaces';
 import { ProductService } from 'src/app/services/product.service';
 

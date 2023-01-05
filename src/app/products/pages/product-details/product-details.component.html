@@ -16,6 +16,17 @@
             <div>
                 <p>{{ productData.description }}</p>
             </div>
+            <div *ngIf="showCartOptions" class="cart-options">
+
+                <div class="cart-order">
+                    <button (click)="Quantity('min')">-</button>
+                    <input class="text-center" type="text" value="{{ productQuantity }}">
+                    <button (click)="Quantity('max')">+</button>
+                </div>
+                <!-- <button class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button> -->
+                <button *ngIf="!removeCart" class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button>
+                <button *ngIf="removeCart" class="add-to-cart form-button" (click)="removeToCart(productData.id)">Eliminar del Carrito</button>
+            </div>
         </div>
     </div>
 </div>

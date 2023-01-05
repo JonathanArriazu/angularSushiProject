@@ -28,3 +28,21 @@ h5,h6{
     margin: 0 0 1em;
     width: 100%;
 }
+
+.cart-order{
+    margin-bottom: 20px;
+}
+
+.cart-order button {
+    width: 30px;
+}
+
+.cart-order input{
+    width: 50px;
+}
+
+.add-to-cart {
+    background-color: #EF8F18;
+    border-radius: 3px;
+    border: 1px solid black;
+}

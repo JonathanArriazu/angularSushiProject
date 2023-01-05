@@ -180,6 +180,13 @@ color: white;
   width: 140px;
 }
 
+.cart-icon{
+color: white;
+}
+
+.cart-container{
+  color: #EF8F18;
+}
 @media (min-width: 576px) {
   .header-icon {
     width: 80px;

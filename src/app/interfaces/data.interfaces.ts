@@ -16,5 +16,6 @@ export interface Login {
     description: string,
     image: string,
     id: number,
-    popular: boolean
+    popular: boolean,
+    quantity: undefined | number
  }
