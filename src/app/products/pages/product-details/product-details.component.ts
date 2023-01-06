@@ -28,7 +28,7 @@ export class ProductDetailsComponent implements OnInit {
         .pipe(switchMap(({ id }) => this.product.getProduct(id)))
         .subscribe((productData) => (this.productData = productData));
 
-    if (localStorage.getItem('user')) {
+    if (localStorage.getItem('user') || localStorage.getItem('admin')) {
       this.showCartOptions = true;
     }
 
@@ -55,7 +55,7 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
     if (this.productData) {
       this.productData.quantity = this.productQuantity;
-      if (localStorage.getItem('user')) {
+      if (localStorage.getItem('user') || localStorage.getItem('admin')) {
         let user = localStorage.getItem('user');
         let userId = user && JSON.parse(user).id;
         let cartData = {

@@ -19,3 +19,7 @@ export interface Login {
     popular: boolean,
     quantity: undefined | number
  }
+
+ export interface Cart {
+   name: string
+ }
