@@ -67,6 +67,7 @@
           maxlength="30"
           #email="ngModel"
           required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
         />
         <p class="invalid-input"><span *ngIf="email.invalid && email.touched">Ingrese un email valido</span></p>
         <input
