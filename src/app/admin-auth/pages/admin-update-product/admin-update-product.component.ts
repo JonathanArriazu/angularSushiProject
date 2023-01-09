@@ -37,7 +37,7 @@ export class AdminUpdateProductComponent implements OnInit {
     this.product.updateProduct(data)
       .subscribe((result) => {
       if (result) {
-        this.productMessage = 'Prodcuto actualizado correctamente';
+        this.productMessage = 'Producto actualizado correctamente';
       }
     });
     setTimeout(() => (this.productMessage = undefined, this.router.navigate(['/admin-home'])), 1500)

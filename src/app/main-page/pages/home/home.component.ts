@@ -10,8 +10,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class HomeComponent implements OnInit {
 
-  popularProducts!: Product[];
-  trendyProducts!: Product[];
+  popularProducts: undefined | Product[];
+  trendyProducts: undefined | Product[];
 
 
   constructor( private product: ProductService ) { }
@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
       this.product.productList()
         .subscribe((data)=>{
           this.trendyProducts=data;
-          this.trendyProducts=this.trendyProducts.filter((element) => {
-            return element.popular === true;
+          this.trendyProducts=this.trendyProducts.filter((property) => {
+            return property.popular === true;
           })
         })
   }

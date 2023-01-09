@@ -25,8 +25,6 @@ export class CartComponent implements OnInit {
     if (cartData) {
       let items = JSON.parse(cartData);
       this.cartData = items;
-      /* let totalPrice = this.cartData.reduce((a, b) => a + (parseInt(b["price"]) || 0), 0);
-      this.totalPrice= totalPrice */
       let price = 0;
       this.cartData.forEach((item) => {
         if (item['quantity']) {

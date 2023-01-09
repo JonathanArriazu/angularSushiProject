@@ -45,9 +45,9 @@ export class ProductService {
   addToCartProduct(data: Product) {
     let cartData = [];
     let localCart = localStorage.getItem('localCart');
-    if (!localCart) {
+    if (!localCart) { /* Si estoy agregando al carrito por primera vez, entonces, creo el localCart */
       localStorage.setItem('localCart', JSON.stringify([data]));
-    } else {
+    } else { /* Si ya tengo un carrito creado, continuo trabajando con este */
       cartData = JSON.parse(localCart);
       if(cartData !== "undefined") {
         cartData.push(data);
@@ -61,7 +61,7 @@ export class ProductService {
     let cartData = localStorage.getItem('localCart');
     if (cartData) {
       let items: Product[] = JSON.parse(cartData);
-      items = items.filter((item: Product) => productId !== item.id);
+      items = items.filter((item: Product) => productId !== item.id); /* Creo un nuevo array con todos los elementos que cumplan la condicion (todos los que tenga id diferente al productId) */
       localStorage.setItem('localCart', JSON.stringify(items));
       this.cartData.emit(items)
     }

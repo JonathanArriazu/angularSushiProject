@@ -9,7 +9,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products!: Product[];
+  /* products!: Product[]; */
+  products: undefined | Product[];
 
   constructor(private product: ProductService) { }
 

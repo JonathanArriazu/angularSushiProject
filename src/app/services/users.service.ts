@@ -25,6 +25,7 @@ export class UserService {
     this.http
       .post('http://localhost:3000/user', data, { observe: 'response' })
       .subscribe((result) => {
+        console.log(result.body);
         /* this.isAdminLoggedIn.next(true); */
         this.isUserLoggedIn = true;
         localStorage.setItem('newuser', JSON.stringify(result.body));
