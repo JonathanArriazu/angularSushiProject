@@ -55,15 +55,6 @@
       "popular": true
     },
     {
-      "name": "Mama Coco",
-      "price": "9999",
-      "category": "Personaje",
-      "description": "Abuela",
-      "image": "https://www.nacionflix.com/__export/1602186866701/sites/debate/img/2020/10/08/mamx_salud_la_verdadera_mamx_coco_que_inspirx_a_la_abuelita_de_miguel_2_1_crop1602186851695.jpg_1032734573.jpg",
-      "popular": "",
-      "id": 7
-    },
-    {
       "name": "Aruba",
       "price": "340",
       "category": "VEGGIE",

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cart } from 'src/app/interfaces/data.interfaces';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -13,7 +14,11 @@ export class CartComponent implements OnInit {
     price: 0,
   };
 
-  constructor(private product: ProductService) {}
+  constructor(private product: ProductService,
+              private router: Router) {}
+
+  purchaseErrorMessage : undefined | string;
+  successfulPurchaseMessage: undefined | string;
 
   ngOnInit(): void {   
 
@@ -39,4 +44,24 @@ export class CartComponent implements OnInit {
     this.product.removeItemFromCart(number);
     this.loadDetails();
   }
+
+  removeAll() {
+    this.product.removeAllItemsFromCart();
+    this.loadDetails();
+  }
+
+
+  purchase(){
+    if (localStorage.getItem('user') || localStorage.getItem('admin')) {
+      console.log('Compra realizada por el monto de =>', this.totalPrice.price);
+      this.successfulPurchaseMessage = 'Compra realizada con exito'
+      setTimeout(() => (this.successfulPurchaseMessage = undefined, this.removeAll()), 2500);
+      
+         
+    } else {
+      this.purchaseErrorMessage = 'Debe estar logueado primero';
+      setTimeout(() => (this.purchaseErrorMessage = undefined, this.router.navigate(['/user-auth'])), 2500);
+    }
+  }
+
 }

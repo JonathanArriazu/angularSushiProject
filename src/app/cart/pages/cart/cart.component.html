@@ -1,6 +1,6 @@
 <div class="cart-page">
     <h1 class="text-center">Carrito de Compras</h1>
-    <div class="row p-5 container-fluid">
+    <div class="row p-3 container-fluid">
         <div class="details">
             <ul *ngFor="let cart of cartData" class="d-flex justify-content-between align-items-center">
                 <li>
@@ -22,6 +22,11 @@
         </div>
         <div class="summary d-flex justify-content-center align-items-center">
             <p class="float-start me-2 fw-bold">Total a pagar: <p>${{totalPrice.price}}</p><p>
+        </div>
+        <div class="text-center mt-2">
+            <Button class="form-button add-to-cart" (click)="purchase()">Realizar Compra</Button>
+            <p class="p-message">{{ purchaseErrorMessage }}</p>
+            <p class="p-message">{{ successfulPurchaseMessage }}</p>
         </div>
     </div>
 </div>

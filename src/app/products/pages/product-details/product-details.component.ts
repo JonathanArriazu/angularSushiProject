@@ -13,7 +13,7 @@ export class ProductDetailsComponent implements OnInit {
   productData: undefined | Product;
   productQuantity: number = 1;
   removeCart = false;
-  showCartOptions = false;
+  /* showCartOptions = false; */
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,15 +22,15 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let productId = this.activatedRoute.snapshot.paramMap.get('id');
-    
+
     productId &&
       this.activatedRoute.params
         .pipe(switchMap(({ id }) => this.product.getProduct(id)))
         .subscribe((productData) => (this.productData = productData));
 
-    if (localStorage.getItem('user') || localStorage.getItem('admin')) {
+    /* if (localStorage.getItem('user') || localStorage.getItem('admin')) {
       this.showCartOptions = true;
-    }
+    } */
 
     let cartData = localStorage.getItem('localCart');
     if (productId && cartData) {
@@ -55,16 +55,15 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
     if (this.productData) {
       this.productData.quantity = this.productQuantity;
-      if (localStorage.getItem('user') || localStorage.getItem('admin')) {
-/*         let user = localStorage.getItem('user');
+      /* if (localStorage.getItem('user') || localStorage.getItem('admin')) {
+        let user = localStorage.getItem('user');
         let userId = user && JSON.parse(user).id;
         let cartData = {
           ...this.productData,
           userId,
-        }; */ /* CONTINUAR LUEGO: VER FORMA DE AGREGAR ID DEL USUARIO AL CARRITO PARA QUE SOLAMENTE EL USUARIO PUEDA BORRAR EL CARRITO */
+        }; */  /* CONTINUAR LUEGO: VER FORMA DE AGREGAR ID DEL USUARIO AL CARRITO PARA QUE SOLAMENTE EL USUARIO PUEDA BORRAR EL CARRITO */
         this.product.addToCartProduct(this.productData);
         this.removeCart = true;
-      }
     }
   }
 
