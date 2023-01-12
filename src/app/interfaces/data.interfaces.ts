@@ -20,6 +20,58 @@ export interface Login {
     quantity: undefined | number
  }
 
- export interface Cart {
-   name: string
+ export interface UserCart {
+   name: string,
+    price: number,
+    category: string,
+    description: string,
+    image: string,
+    id: number | undefined,
+    popular: boolean,
+    quantity: undefined | number,
+    userId: number,
+    productId: number,
+    actualDate: string
  }
+
+ export interface AdminCart {
+   name: string,
+    price: number,
+    category: string,
+    description: string,
+    image: string,
+    id: number | undefined,
+    popular: boolean,
+    quantity: undefined | number,
+    adminId: number,
+    productId: number,
+    actualDate: string
+ }
+
+ 
+ export interface UserOrders {
+    asd: string,
+    name: string,
+    price: number,
+    category: string,
+    description: string,
+    image: string,
+    id: number,
+    popular: boolean,
+    quantity: undefined | number,
+    userId: number,
+    actualDate: string
+   }
+   export interface AdminOrders {
+     name: string,
+      price: number,
+      category: string,
+      description: string,
+      image: string,
+      id: number | undefined,
+      popular: boolean,
+      quantity: undefined | number,
+      adminId: number,
+      productId: number,
+      actualDate: string
+   }

@@ -1,0 +1,25 @@
+<div class="cart-page">
+    <h1 class="text-center">Mis compras</h1>
+    <div class="row p-3 container-fluid">
+        <div class="details">
+            <ul *ngFor="let cart of cartData2" class="d-flex justify-content-between align-items-center">
+            <!-- <ul class="d-flex justify-content-between align-items-center"> -->
+                <li>
+                    <img src="{{cart.image}}" alt="">
+                </li>
+                <li>
+                    <span>Nombre del producto: {{cart.name}}</span>
+                </li>
+                <li>
+                    <span>Cantidad: {{cart.quantity}}</span>
+                </li>
+                <li>
+                    <span>Precio: ${{cart.price}}</span>
+                </li>
+                <li>
+                    <span>{{cart.actualDate}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

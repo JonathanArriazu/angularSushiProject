@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { Login } from 'src/app/interfaces/data.interfaces';
+import { Product, Login } from 'src/app/interfaces/data.interfaces';
 import { UserService } from 'src/app/services/users.service';
 import { SignUp } from '../../../interfaces/data.interfaces';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-admin-auth',
@@ -15,6 +16,7 @@ export class UserAuthComponent implements OnInit {
   authError: string = '';
 
   constructor( private user: UserService,
+               private product: ProductService,
                private router: Router ) { }
 
   ngOnInit(): void {
@@ -27,17 +29,20 @@ export class UserAuthComponent implements OnInit {
   }
 
   login( data: Login ): void {
-    this.authError='';
+    /* this.authError=''; */
     this.user.userLogin(data)
-    /* this.admin.isLoginError
-        .subscribe(( isError )=> {
-          if( isError ) {
-            this.authError='Email or password is not correct'
-          }
-        }) */
-    if (this.user.isLoginError = true) {
+    this.user.invalidUserAuth
+      .subscribe((result) => {
+        if (result) {
+          this.authError = 'Email o contraseña no son correctos'
+        }
+      })
+    /* if (this.user.isLoginError = false) {      
       this.authError='Email o contraseña no son correctos'
-    }
+      console.log('hola')
+    } else {
+      console.log('hola con error')
+    } */
   }
 
   openLogin() {

@@ -52,7 +52,6 @@ export class HeaderComponent implements OnInit {
     
 
     if(cartData){
-      console.log(JSON.parse(cartData))
       this.cartProducts = JSON.parse(cartData).length;
     }
 

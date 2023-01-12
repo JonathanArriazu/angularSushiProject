@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from '../interfaces/data.interfaces';
+import { Product, UserOrders, UserCart, AdminCart, AdminOrders } from '../interfaces/data.interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -75,5 +75,22 @@ export class ProductService {
       localStorage.setItem('localCart', JSON.stringify(items));
       this.cartData.emit(items)
     }
+  }
+
+  addUserOrders(cartData: UserCart) {
+    return this.http.post('http://localhost:3000/userOrders', cartData)
+  }
+
+  addAdminOrders(cartData: AdminCart) {
+    return this.http.post('http://localhost:3000/adminOrders', cartData)
+  }
+
+
+  getUserOrders() {
+    return this.http.get<UserOrders[]>('http://localhost:3000/userOrders');
+  }
+
+  getAdminOrders() {
+    return this.http.get<AdminOrders[]>('http://localhost:3000/adminOrders');
   }
 }

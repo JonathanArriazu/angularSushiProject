@@ -13,7 +13,8 @@ export class UserService {
   /* isAdminLoggedIn = new BehaviorSubject<boolean>(false); */
   isAdminLoggedIn : boolean = false;
    /* isLoginError = new BehaviorSubject<boolean>(false); */
-  isLoginError = "" || false;
+  /* isLoginError = "" || false; */
+  invalidUserAuth = new EventEmitter<boolean>(false)
   isUserLoggedIn : boolean = false;
   admin = {
     "admin" : true
@@ -25,7 +26,6 @@ export class UserService {
     this.http
       .post('http://localhost:3000/user', data, { observe: 'response' })
       .subscribe((result) => {
-        console.log(result.body);
         /* this.isAdminLoggedIn.next(true); */
         this.isUserLoggedIn = true;
         localStorage.setItem('newuser', JSON.stringify(result.body));
@@ -56,16 +56,15 @@ export class UserService {
 /*         console.log(result.body[0].hasOwnProperty('admin')); */
         /* if( result.body.length){ */
         if( result.body?.length && result.body[0].hasOwnProperty('admin') ){
-          this.isLoginError = false;
+          this.invalidUserAuth.emit(false);
           localStorage.setItem('admin', JSON.stringify(result.body));
           this.router.navigate(['admin-home']);
-        } else if(result.body?.length) {
-          this.isLoginError = false;
+        } else if( result.body?.length) {
+          this.invalidUserAuth.emit(false);         
           localStorage.setItem('user', JSON.stringify(result.body));
           this.router.navigate(['/main']);
         } else {
-          /* this.isLoginError.emit(true); */
-          this.isLoginError = true;
+          this.invalidUserAuth.emit(true);
         }
       })
   }

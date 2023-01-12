@@ -55,17 +55,35 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
     if (this.productData) {
       this.productData.quantity = this.productQuantity;
-      /* if (localStorage.getItem('user') || localStorage.getItem('admin')) {
-        let user = localStorage.getItem('user');
-        let userId = user && JSON.parse(user).id;
-        let cartData = {
-          ...this.productData,
-          userId,
-        }; */  /* CONTINUAR LUEGO: VER FORMA DE AGREGAR ID DEL USUARIO AL CARRITO PARA QUE SOLAMENTE EL USUARIO PUEDA BORRAR EL CARRITO */
+      if (localStorage.getItem('user')) {
         this.product.addToCartProduct(this.productData);
+        this.removeCart = true;
+        /* let user = localStorage.getItem('user');
+        if (user) {
+          let userInfo = JSON.parse(user);
+          let userId = user && userInfo[0].id ;
+          let cartData : Cart = {
+            ...this.productData,
+            userId,
+            productId: this.productData.id,
+          }
+          delete cartData.id;
+          this.product.addToCart(cartData)
+            .subscribe((result) => {
+              if (result) {
+                alert('Product is added to cart')
+              }
+            })
+        }; */
+    } else if (localStorage.getItem('admin')) {
+        this.product.addToCartProduct(this.productData);
+        this.removeCart = true;
+    } else {
+      this.product.addToCartProduct(this.productData);
         this.removeCart = true;
     }
   }
+}
 
   removeToCart(productId: number) {
     this.product.removeItemFromCart(productId);
