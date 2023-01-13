@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: "",
     loadChildren: () => import('./user-orders/user-orders.module').then( m => m.UserOrdersModule)
+  },
+  {
+    path: "",
+    loadChildren: () => import('./user-favs/user-favs.module').then( m => m.UserFavsModule)
   }
 ]
 

@@ -13,7 +13,8 @@ export class ProductDetailsComponent implements OnInit {
   productData: undefined | Product;
   productQuantity: number = 1;
   removeCart = false;
-  /* showCartOptions = false; */
+  removeFavs = false;
+  showFavstOptions = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -28,9 +29,9 @@ export class ProductDetailsComponent implements OnInit {
         .pipe(switchMap(({ id }) => this.product.getProduct(id)))
         .subscribe((productData) => (this.productData = productData));
 
-    /* if (localStorage.getItem('user') || localStorage.getItem('admin')) {
-      this.showCartOptions = true;
-    } */
+    if (localStorage.getItem('user') || localStorage.getItem('admin')) {
+      this.showFavstOptions = true;
+    }
 
     let cartData = localStorage.getItem('localCart');
     if (productId && cartData) {
@@ -58,23 +59,6 @@ export class ProductDetailsComponent implements OnInit {
       if (localStorage.getItem('user')) {
         this.product.addToCartProduct(this.productData);
         this.removeCart = true;
-        /* let user = localStorage.getItem('user');
-        if (user) {
-          let userInfo = JSON.parse(user);
-          let userId = user && userInfo[0].id ;
-          let cartData : Cart = {
-            ...this.productData,
-            userId,
-            productId: this.productData.id,
-          }
-          delete cartData.id;
-          this.product.addToCart(cartData)
-            .subscribe((result) => {
-              if (result) {
-                alert('Product is added to cart')
-              }
-            })
-        }; */
     } else if (localStorage.getItem('admin')) {
         this.product.addToCartProduct(this.productData);
         this.removeCart = true;
@@ -88,5 +72,26 @@ export class ProductDetailsComponent implements OnInit {
   removeToCart(productId: number) {
     this.product.removeItemFromCart(productId);
     this.removeCart = false;
+  }
+
+  addToFavs() {
+    if (this.productData) {
+      if (localStorage.getItem('user')) {
+        this.product.addToFavsProduct(this.productData);
+        this.removeFavs = true;
+    } else if (localStorage.getItem('admin')) {
+        this.product.addToFavsProduct(this.productData);
+        this.removeFavs = true;
+    } else {
+      this.product.addToFavsProduct(this.productData);
+        this.removeFavs = true;
+    }
+  }
+
+  }
+
+  removeToFavs(productId: number) {
+    this.product.removeItemFromFavs(productId);
+    this.removeFavs = false;
   }
 }

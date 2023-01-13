@@ -24,8 +24,16 @@
                     <button (click)="Quantity('max')">+</button>
                 </div>
                 <!-- <button class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button> -->
-                <button *ngIf="!removeCart" class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button>
-                <button *ngIf="removeCart" class="add-to-cart form-button" (click)="removeToCart(productData.id)">Eliminar del Carrito</button>
+                <div class="d-flex justify-content-around">
+                    <div>
+                        <button *ngIf="!removeCart" class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button>
+                        <button *ngIf="removeCart" class="add-to-cart form-button" (click)="removeToCart(productData.id)">Eliminar del Carrito</button>
+                    </div>
+                    <div *ngIf="showFavstOptions">
+                        <button *ngIf="!removeFavs" class="add-to-cart form-button" (click)="addToFavs()">Agregar a Favoritos</button>
+                        <button *ngIf="removeFavs" class="add-to-cart form-button" (click)="removeToFavs(productData.id)">Eliminar de Favoritos</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
 
   purchaseErrorMessage: undefined | string;
   successfulPurchaseMessage: undefined | string;
+  EmptyCartMessage: undefined | string;
 
   ngOnInit(): void {
     this.loadDetails();

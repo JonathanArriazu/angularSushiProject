@@ -9,6 +9,7 @@ import { Product, UserOrders, UserCart, AdminCart, AdminOrders } from '../interf
 })
 export class ProductService {
   cartData = new EventEmitter<Product[] | []>();
+  favsData = new EventEmitter<Product[] | []>();
   constructor(private http: HttpClient, private router: Router) {}
 
   productList() {
@@ -45,9 +46,9 @@ export class ProductService {
   addToCartProduct(data: Product) {
     let cartData = [];
     let localCart = localStorage.getItem('localCart');
-    if (!localCart) { /* Si estoy agregando al carrito por primera vez, entonces, creo el localCart */
+    if (!localCart) {
       localStorage.setItem('localCart', JSON.stringify([data]));
-    } else { /* Si ya tengo un carrito creado, continuo trabajando con este */
+    } else {
       cartData = JSON.parse(localCart);
       if(cartData !== "undefined") {
         cartData.push(data);
@@ -74,6 +75,41 @@ export class ProductService {
       items = [];
       localStorage.setItem('localCart', JSON.stringify(items));
       this.cartData.emit(items)
+    }
+  }
+
+  addToFavsProduct(data: Product) {
+    let favsData = [];
+    let localFavs = localStorage.getItem('localFavs');
+    if (!localFavs) { /* Si estoy agregando al carrito por primera vez, entonces, creo el localCart */
+      localStorage.setItem('localFavs', JSON.stringify([data]));
+    } else { /* Si ya tengo un carrito creado, continuo trabajando con este */
+    favsData = JSON.parse(localFavs);
+      if(favsData !== "undefined") {
+        favsData.push(data);
+      }
+      localStorage.setItem('localFavs', JSON.stringify(favsData));
+    }
+    this.favsData.emit(favsData);    
+  }
+
+  removeItemFromFavs(productId: number) {
+    let favsData = localStorage.getItem('localFavs');
+    if (favsData) {
+      let items: Product[] = JSON.parse(favsData);
+      items = items.filter((item: Product) => productId !== item.id); /* Creo un nuevo array con todos los elementos que cumplan la condicion (todos los que tenga id diferente al productId) */
+      localStorage.setItem('localFavs', JSON.stringify(items));
+      this.favsData.emit(items)
+    }
+  }
+
+  removeAllItemsFromFavs () {
+    let favsData = localStorage.getItem('localFavs');
+    if (favsData) {
+      let items: Product[] = JSON.parse(favsData);
+      items = [];
+      localStorage.setItem('localFavs', JSON.stringify(items));
+      this.favsData.emit(items)
     }
   }
 
