@@ -15,12 +15,13 @@ export class CartComponent implements OnInit {
   totalPrice = {
     price: 0,
   };
+  emptyCartData: undefined | string;
 
   constructor(private product: ProductService, private router: Router) {}
 
   purchaseErrorMessage: undefined | string;
   successfulPurchaseMessage: undefined | string;
-  EmptyCartMessage: undefined | string;
+  EmptyCartMessage = false
 
   ngOnInit(): void {
     this.loadDetails();
@@ -30,14 +31,17 @@ export class CartComponent implements OnInit {
     let cartData = localStorage.getItem('localCart');
     if (cartData) {
       let items = JSON.parse(cartData);
-      this.cartData = items;
-      let price = 0;
-      this.cartData.forEach((item) => {
-        if (item['quantity']) {
-          price = price + +item['price'] * +item['quantity'];
+        this.cartData = items;
+        if (this.cartData. length === 0) {
+          this.EmptyCartMessage = true
         }
-      });
-      this.totalPrice.price = price;
+        let price = 0;
+        this.cartData.forEach((item) => {
+          if (item['quantity']) {
+            price = price + +item['price'] * +item['quantity'];
+          }
+        });
+        this.totalPrice.price = price;
     }
   }
 

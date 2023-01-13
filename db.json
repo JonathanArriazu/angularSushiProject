@@ -184,6 +184,19 @@
       "userId": 3,
       "actualDate": "12-01-2023",
       "id": 7
+    },
+    {
+      "name": "Bahamas",
+      "price": "680",
+      "category": "URAMAKIS - ROLLS",
+      "description": "Roll relleno de Palta y Philadelphia envuelto en Salmón Rosado.",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza8-510x340.jpg",
+      "popular": "",
+      "quantity": 1,
+      "productId": 1,
+      "userId": 2,
+      "actualDate": "13-01-2023",
+      "id": 8
     }
   ]
 }

@@ -16,11 +16,13 @@ import { ProductService } from 'src/app/services/product.service';
 export class UserOrdersComponent implements OnInit {
   cartData: any[] = [];
   cartData2: any[] = [];
+  userLogged = false;
 
   constructor(private product: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     if (localStorage.getItem('user')) {
+      this.userLogged = true;
       this.product.getUserOrders().subscribe((result) => {
         this.cartData = result;
         let user = localStorage.getItem('user');
@@ -36,6 +38,7 @@ export class UserOrdersComponent implements OnInit {
         }
       });
     } else if (localStorage.getItem('admin')) {
+      this.userLogged = true;
       this.product.getAdminOrders().subscribe((result) => {
         this.cartData = result;
         let admin = localStorage.getItem('admin');

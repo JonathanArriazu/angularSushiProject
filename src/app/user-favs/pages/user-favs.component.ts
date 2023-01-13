@@ -9,7 +9,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class UserFavsComponent implements OnInit {
 date = new Date();
-  favsData = [];
+favsData = [];
+userLogged = false;
 
   constructor(private product: ProductService, private router: Router) {}
 
@@ -18,6 +19,11 @@ date = new Date();
   EmptyCartMessage: undefined | string;
 
   ngOnInit(): void {
+    if (localStorage.getItem('user')) {
+      this.userLogged = true;
+    } else if (localStorage.getItem('admin')) {
+      this.userLogged = true;
+    }
     this.loadDetails();
   }
 

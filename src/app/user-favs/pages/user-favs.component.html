@@ -1,6 +1,6 @@
 <div class="cart-page">
     <h1 class="text-center">Mis Favoritos</h1>
-    <div class="row p-3 container-fluid">
+    <div *ngIf="userLogged" class="row p-3 container-fluid">
         <div>
             <h1>{{EmptyCartMessage}}</h1>
         </div>
@@ -16,12 +16,17 @@
                     <span>Precio: ${{cart['price']}}</span>
                 </li>
                 <li>
-                    <button class="form-button add-to-cart" (click)="removeFromFavs(cart['id'])">Eliminar de Favoritos</button>
+                    <button class="form-button add-to-favs" (click)="removeFromFavs(cart['id'])">Eliminar de Favoritos</button>
                 </li>
             </ul>
         </div>
         <div class="text-center mt-2">
-            <Button class="form-button add-to-cart" (click)="removeAllFavs()">Eliminar todos mis favoritos</Button>
+            <Button class="form-button add-to-favs" (click)="removeAllFavs()">Eliminar todos mis favoritos</Button>
+        </div>
+    </div>
+    <div *ngIf="!userLogged"  class="row p-3 container-fluid">
+        <div class="d-flex justify-content-center align-items-center text-center">
+            <p>Logueate haciendo click <a class="login-link" routerLink="/user-auth">aquí</a>  para poder ver tu lista de favoritos</p>
         </div>
     </div>
 </div>
