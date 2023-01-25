@@ -1,11 +1,11 @@
 <div class="cart-page">
     <h1 class="text-center">Mis Favoritos</h1>
     <div *ngIf="userLogged" class="row p-3 container-fluid">
-        <div>
-            <h1>{{EmptyCartMessage}}</h1>
+        <div *ngIf="EmptyFavsMessage" class="d-flex justify-content-center">
+            <span>No tiene ningun articulo agregado a favoritos</span>
         </div>
         <div class="details">
-            <ul *ngFor="let cart of favsData" class="d-flex justify-content-between align-items-center">
+            <ul *ngFor="let cart of favsData2" class="d-flex justify-content-between align-items-center">
                 <li>
                     <img src="{{cart['image']}}" alt="">
                 </li>
@@ -21,7 +21,7 @@
             </ul>
         </div>
         <div class="text-center mt-2">
-            <Button class="form-button add-to-favs" (click)="removeAllFavs()">Eliminar todos mis favoritos</Button>
+            <Button *ngIf="!EmptyFavsMessage" class="form-button add-to-favs" (click)="removeAllFavs()">Eliminar todos mis favoritos</Button>
         </div>
     </div>
     <div *ngIf="!userLogged"  class="row p-3 container-fluid">

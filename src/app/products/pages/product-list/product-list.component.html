@@ -1,11 +1,213 @@
 <h1 class="my-4">Menú</h1>
-<div class="container row">
+<div class="container-fluid row">
     <div class="col-lg-3">
-        <div class="list-group">
-            <a class="list-group-item" href="">URAMAKIS - ROLLS</a>
-            <a class="list-group-item" href="">WOKBOX</a>
-            <a class="list-group-item" href="">VEGGIE</a>
+
+      <div>
+        <button
+          type="button"
+          (click)="allPrices()"
+          class="button-16"
+        >
+          <span>Mostrar todos los productos</span>
+        </button>
+      </div>
+
+      <div>
+        <button
+          type="button"
+          (click)="priceCollapsed = !priceCollapsed"
+          [attr.aria-expanded]="!priceCollapsed"
+          aria-controls="collapseExample"
+          class="button-16 d-flex align-items-center"
+        >
+        <span>Filtrar por precios</span>
+        <fa-icon *ngIf="priceCollapsed" class="down-icon" [icon]="downIcon"></fa-icon>
+      </button>
+      </div>
+      
+      <div class="container-fluid">
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="priceCollapsed">
+          <ul
+            class="list container-fluid navbar-nav mr-auto d-flex justify-content-between"
+          >
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="price(0, 300)">
+                <p class="item">Menor a $300</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="price(300, 400)">
+                <p class="item">$300-$400</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-user-img" (click)="price(400, 500)">
+                  <p class="item">$400 - $500</p>              
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="price(500, 600)">
+                <p class="item">$500 - $600</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link item text-decoration-none" (click)="price(600, 1000)">
+                <p class="item">Mayor a $600</p>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <div >
+        <button
+          type="button"
+          (click)="ingredientCollapsed = !ingredientCollapsed"
+          [attr.aria-expanded]="!ingredientCollapsed"
+          aria-controls="collapseExample"
+          class="button-16 d-flex align-items-center"
+        >
+          <span>Filtrar por ingredientes</span>
+          <fa-icon *ngIf="ingredientCollapsed" class="down-icon" [icon]="downIcon"></fa-icon>
+        </button>
+      </div>
+      
+      <div class="container-fluid">
+        <div #collapse="ngbCollapse" [(ngbCollapse)]="ingredientCollapsed">
+          <ul
+            class="list container-fluid navbar-nav mr-auto d-flex justify-content-between"
+          >
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Palta')">
+                <p class="item">Palta</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Salmón')">
+                <p class="item">Salmón</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-user-img" (click)="ingredient('Philadelphia')">
+                  <p class="item">Philadelphia</p>              
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Salsa de Soja')">
+                <p class="item">Salsa de Soja</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Zanahoria')">
+                <p class="item">Zanahoria</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Morron')">
+                <p class="item">Morron</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Zapallito')">
+                <p class="item">Zapallito</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-user-img" (click)="ingredient('Cebolla')">
+                  <p class="item">Cebolla</p>              
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Brotes de Soja')">
+                <p class="item">Brotes de Soja</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Pollo')">
+                <p class="item">Pollo</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Pepino')">
+                <p class="item">Pepino</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Lechuga')">
+                <p class="item">Lechuga</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-user-img" (click)="ingredient('Rucula')">
+                  <p class="item">Rucula</p>              
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Tomates')">
+                <p class="item">Tomates</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-decoration-none" (click)="ingredient('Mayonesa')">
+                <p class="item">Mayonesa</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+        <!-- <div class="list-group">
+          <button class="list-group-item" (click)="allPrices()">Mostrar todos los productos</button> -->
+            <!-- <ul>Precios
+             <li><button class="list-group-item" (click)="price1()">Menor a $300</button></li>
+             <li><button class="list-group-item" (click)="price2()">$300-$400</button></li>
+             <li><button class="list-group-item" (click)="price3()">$400 - $500</button></li>
+             <li><button class="list-group-item" (click)="price4()">$500 - $600</button></li>
+             <li><button class="list-group-item" (click)="price5()">Mayor a 600$</button></li>
+          </ul> -->
+          <!-- <ul>Precios
+             <li><button class="list-group-item" (click)="price(0, 300)">Menor a $300</button></li>
+             <li><button class="list-group-item" (click)="price(300, 400)">$300-$400</button></li>
+             <li><button class="list-group-item" (click)="price(400, 500)">$400 - $500</button></li>
+             <li><button class="list-group-item" (click)="price(500, 600)">$500 - $600</button></li>
+             <li><button class="list-group-item" (click)="price(600, 1000)">Mayor a 600$</button></li>
+          </ul>
+        </div>
+        <div class="list-group">   -->        
+            <!-- <ul>Ingredientes
+             <li><button class="list-group-item" (click)="ingredient1()">Palta</button></li>
+             <li><button class="list-group-item" (click)="ingredient2()">Salmón</button></li>
+             <li><button class="list-group-item" (click)="ingredient3()">Philadelphia</button></li>
+             <li><button class="list-group-item" (click)="ingredient4()">Salsa de Soja</button></li>
+             <li><button class="list-group-item" (click)="ingredient5()">Zanahoria</button></li>
+             <li><button class="list-group-item" (click)="ingredient6()">Morron</button></li>
+             <li><button class="list-group-item" (click)="ingredient7()">Zapallito</button></li>
+             <li><button class="list-group-item" (click)="ingredient8()">Cebolla</button></li>
+             <li><button class="list-group-item" (click)="ingredient9()">Brotes de Soja</button></li>
+             <li><button class="list-group-item" (click)="ingredient10()">Pollo</button></li>
+             <li><button class="list-group-item" (click)="ingredient11()">Pepino</button></li>
+             <li><button class="list-group-item" (click)="ingredient12()">Lechuga</button></li>
+             <li><button class="list-group-item" (click)="ingredient13()">Rucula</button></li>
+             <li><button class="list-group-item" (click)="ingredient14()">Tomates</button></li>
+             <li><button class="list-group-item" (click)="ingredient15()">Mayonesa</button></li>
+          </ul> -->
+          <!-- <ul>Ingredientes
+            <li><button class="list-group-item" (click)="ingredient('Palta')">Palta</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Salmón')">Salmón</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Philadelphia')">Philadelphia</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Salsa de Soja')">Salsa de Soja</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Zanahoria')">Zanahoria</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Morron')">Morron</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Zapallito')">Zapallito</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Cebolla')">Cebolla</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Brotes de Soja')">Brotes de Soja</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Pollo')">Pollo</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Pepino')">Pepino</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Lechuga')">Lechuga</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Rucula')">Rucula</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Tomates')">Tomates</button></li>
+            <li><button class="list-group-item" (click)="ingredient('Mayonesa')">Mayonesa</button></li>
+         </ul>
+        </div> -->
     </div>
     <div class="col-lg-9">
         <div class="cards-container row row-cols-1 row-cols-md-3 g-4">

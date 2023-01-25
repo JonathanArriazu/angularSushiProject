@@ -75,3 +75,8 @@ export interface Login {
       productId: number,
       actualDate: string
    }
+
+   export interface Category {
+      id: string;
+      categoryName: string;
+   }

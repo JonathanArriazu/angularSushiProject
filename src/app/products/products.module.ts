@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { SidebarComponent } from '../site-layout/sidebar/sidebar.component';
 import { SiteLayoutModule } from '../site-layout/site-layout.module';
+import { NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -15,7 +17,10 @@ import { SiteLayoutModule } from '../site-layout/site-layout.module';
     ProductListComponent
   ],
   imports: [
-    CommonModule,
+    NgbCollapseModule,
+    NgbDropdownModule,
+    CommonModule,    
+    FontAwesomeModule,
     ProductsRoutingModule,
     HttpClientModule
   ]

@@ -29,7 +29,6 @@ export class UserAuthComponent implements OnInit {
   }
 
   login( data: Login ): void {
-    /* this.authError=''; */
     this.user.userLogin(data)
     this.user.invalidUserAuth
       .subscribe((result) => {

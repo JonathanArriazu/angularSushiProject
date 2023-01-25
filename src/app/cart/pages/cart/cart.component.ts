@@ -56,10 +56,11 @@ export class CartComponent implements OnInit {
   }
 
   purchase() {
-    if (localStorage.getItem('user') || localStorage.getItem('admin')) {
+    if (localStorage.getItem('user') || localStorage.getItem('admin') || localStorage.getItem('newuser')) {
       let data = localStorage.getItem('localCart');
       let user = localStorage.getItem('user');
       let admin = localStorage.getItem('admin');
+      let newUser = localStorage.getItem('newuser')
       if (data && user) {
         let userInfo = JSON.parse(user);
         let userId = user && userInfo[0].id;
@@ -101,6 +102,33 @@ export class CartComponent implements OnInit {
           };
           delete cartData.id;
           this.product.addAdminOrders(cartData).subscribe((result) => {
+            if (result) {
+              this.successfulPurchaseMessage = 'Compra realizada con exito';
+            }
+            setTimeout(
+              () => (
+                (this.successfulPurchaseMessage = undefined),
+                this.removeAll(),
+                this.router.navigate(['/main'])
+              ),
+              2500
+            );
+          });
+        });
+      } else if (data && newUser) {        
+        let userInfo = JSON.parse(newUser);
+        let userId = newUser && userInfo.id;
+        let cartDataList = JSON.parse(data);
+        let actualDate = this.date.getDate() + "-"+ this.date.getMonth()+1 + "-" +this.date.getFullYear();    
+        cartDataList.forEach((product: Product) => {
+          let cartData: UserCart = {
+            ...product,
+            productId: product.id,
+            userId,
+            actualDate
+          };
+          delete cartData.id;
+          this.product.addUserOrders(cartData).subscribe((result) => {
             if (result) {
               this.successfulPurchaseMessage = 'Compra realizada con exito';
             }

@@ -94,13 +94,64 @@ export class ProductService {
   }
 
   removeItemFromFavs(productId: number) {
-    let favsData = localStorage.getItem('localFavs');
+
+    if (localStorage.getItem('user')) {
+      let favsData = localStorage.getItem('localFavs');
+      if (favsData) {
+        let items = JSON.parse(favsData);
+        let user = localStorage.getItem('user');
+        if (user) {
+          let userInfo = JSON.parse(user);
+          let userId = user && userInfo[0].id;
+          items.forEach((element: any) => {
+            if (userId === element.userId && productId === element.id) {
+              let items2 = items.filter((item: any) => item != element)
+              localStorage.setItem('localFavs', JSON.stringify(items2));
+            }
+          });
+        }
+      }
+    } else if (localStorage.getItem('admin')) {
+      let favsData = localStorage.getItem('localFavs');
+      if (favsData) {
+        let items = JSON.parse(favsData);
+        let admin = localStorage.getItem('admin');
+        if (admin) {
+          let adminInfo = JSON.parse(admin);
+          let adminId = admin && adminInfo[0].id;
+          items.forEach((element: any) => {
+            if (adminId === element.userId && productId === element.id) {
+              let items2 = items.filter((item: any) => item != element)
+              localStorage.setItem('localFavs', JSON.stringify(items2));
+            }
+          });
+        }
+      }
+    } else if (localStorage.getItem('newuser')) {
+      let favsData = localStorage.getItem('localFavs');
+      if (favsData) {
+        let items = JSON.parse(favsData);
+        let user = localStorage.getItem('newuser');
+        if (user) {
+          let userInfo = JSON.parse(user);
+          let userId = user && userInfo.id;
+          items.forEach((element: any) => {
+            if (userId === element.userId && productId === element.id) {
+              let items2 = items.filter((item: any) => item != element)
+              localStorage.setItem('localFavs', JSON.stringify(items2));
+            }
+          });
+        }
+      }
+    }
+
+    /* let favsData = localStorage.getItem('localFavs');
     if (favsData) {
       let items: Product[] = JSON.parse(favsData);
-      items = items.filter((item: Product) => productId !== item.id); /* Creo un nuevo array con todos los elementos que cumplan la condicion (todos los que tenga id diferente al productId) */
-      localStorage.setItem('localFavs', JSON.stringify(items));
+      items = items.filter((item: Product) => productId !== item.id); */ /* Creo un nuevo array con todos los elementos que cumplan la condicion (todos los que tenga id diferente al productId) */
+      /* localStorage.setItem('localFavs', JSON.stringify(items));
       this.favsData.emit(items)
-    }
+    } */
   }
 
   removeAllItemsFromFavs () {

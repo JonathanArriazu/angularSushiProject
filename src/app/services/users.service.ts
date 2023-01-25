@@ -49,12 +49,9 @@ export class UserService {
   }
 
   userLogin(data: Login) {
-    //api call code will be there
     this.http
       .get(`http://localhost:3000/user?email=${data.email}&password=${data.password}`, {observe: 'response'})
       .subscribe((result: any) => {
-/*         console.log(result.body[0].hasOwnProperty('admin')); */
-        /* if( result.body.length){ */
         if( result.body?.length && result.body[0].hasOwnProperty('admin') ){
           this.invalidUserAuth.emit(false);
           localStorage.setItem('admin', JSON.stringify(result.body));
