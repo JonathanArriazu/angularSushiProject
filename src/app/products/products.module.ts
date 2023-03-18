@@ -8,6 +8,7 @@ import { SidebarComponent } from '../site-layout/sidebar/sidebar.component';
 import { SiteLayoutModule } from '../site-layout/site-layout.module';
 import { NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,8 +20,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     NgbCollapseModule,
     NgbDropdownModule,
-    CommonModule,    
+    CommonModule,
     FontAwesomeModule,
+    FormsModule,
     ProductsRoutingModule,
     HttpClientModule
   ]

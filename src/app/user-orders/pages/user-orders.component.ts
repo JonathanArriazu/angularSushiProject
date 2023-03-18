@@ -17,12 +17,17 @@ export class UserOrdersComponent implements OnInit {
   cartData: any[] = [];
   cartData2: any[] = [];
   userLogged = false;
+  titleType: string = 'user';
+  adminOrdersList: string = 'default'
 
   constructor(private product: ProductService, private router: Router) {}
+
+  EmptyCartMessage = false;
 
   ngOnInit(): void {
     if (localStorage.getItem('user')) {
       this.userLogged = true;
+      this.titleType = 'user';
       this.product.getUserOrders().subscribe((result) => {
         this.cartData = result;
         let user = localStorage.getItem('user');
@@ -31,28 +36,27 @@ export class UserOrdersComponent implements OnInit {
           let userId = user && userInfo[0].id;
           this.cartData.reverse().forEach((result) => {
             if (userId === result.userId) {
-              this.cartData2.push(result);
+              this.cartData2.push(result);              
             }
+           if (this.cartData2.length === 0){
+            this.EmptyCartMessage = true;
+           } else {
+            this.EmptyCartMessage = false;
+           }
           });
         }
       });
     } else if (localStorage.getItem('admin')) {
       this.userLogged = true;
-      this.product.getAdminOrders().subscribe((result) => {
-        this.cartData = result;
-        let admin = localStorage.getItem('admin');
-        if (admin) {
-          let adminInfo = JSON.parse(admin);
-          let adminId = admin && adminInfo[0].id;
-          this.cartData.reverse().forEach((result) => {
-            if (adminId === result.adminId) {
-              this.cartData2.push(result);
-            }
-          });
-        }
+      this.titleType = 'admin';
+      this.product.getUserOrders().subscribe((result) => {
+        this.cartData = result.reverse();
+        this.adminOrdersList = 'adminList'
+        console.log(this.cartData)        
       });
     } else if (localStorage.getItem('newuser')) {
       this.userLogged = true;
+      this.titleType = 'user'
       this.product.getUserOrders().subscribe((result) => {
         this.cartData = result;
         let newUser = localStorage.getItem('newuser');
@@ -60,12 +64,21 @@ export class UserOrdersComponent implements OnInit {
           let userInfo = JSON.parse(newUser);
           let userId = newUser && userInfo.id;
           this.cartData.reverse().forEach((result) => {
-            if (userId === result.userId) {
-              this.cartData2.push(result);
+            if (userId === result.userId) {              
+              this.cartData2.push(result);              
             }
+            if (this.cartData2.length === 0){
+              this.EmptyCartMessage = true;
+             } else {
+              this.EmptyCartMessage = false;
+             }
           });
         }
       });
     }
+    /* console.log(this.cartData2) */
+    /* if (this.cartData2) {
+      this.EmptyCartMessage = false
+    }  */
   }
 }

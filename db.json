@@ -14,10 +14,16 @@
       "id": 2
     },
     {
-      "name": "asdasd",
-      "email": "asd123@gmail.com",
+      "name": "hjk123",
+      "email": "hjk123@gmail.com",
       "password": "123456",
       "id": 3
+    },
+    {
+      "name": "asd123",
+      "email": "asd123@gmail.com",
+      "password": "123456",
+      "id": 4
     }
   ],
   "products": [
@@ -27,7 +33,8 @@
       "category": "URAMAKIS - ROLLS",
       "description": "Roll relleno de Palta y Philadelphia envuelto en Salmón Rosado.",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza8-510x340.jpg",
-      "popular": "",
+      "ingredients": "Palta, Salmón, Philadelphia,             ",
+      "popular": true,
       "id": 1
     },
     {
@@ -36,8 +43,9 @@
       "category": "URAMAKIS - ROLLS",
       "description": "Roll relleno de Salmón y Philadelphia envuelto en Palta.",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza6-510x340.jpg",
-      "id": 2,
-      "popular": true
+      "ingredients": "Palta, Salmón, Philadelphia,             ",
+      "popular": true,
+      "id": 2
     },
     {
       "name": "Chop Suey",
@@ -45,8 +53,9 @@
       "category": "WOKBOX",
       "description": "Exquisita combinacion de verduras al wok saborizado a con Salsa de Soja.  Zanahoria, Morron, Zapallito, Cebolla y Brotes de Soja. Adicionales Pollo, Lomo o Langostinos.",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/chop-suey-1-510x340.jpg",
-      "id": 4,
-      "popular": true
+      "ingredients": "   Salsa de Soja, Zanahoria, Morron, Zapallito, Cebolla, Brotes de Soja, Pollo,      ",
+      "popular": true,
+      "id": 4
     },
     {
       "name": "Aruba",
@@ -54,6 +63,8 @@
       "category": "VEGGIE",
       "description": "Roll relleno de Pepino, Zanahoria, Palta y Philadelphia envuelto en Lechuga",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza15-510x340.jpg",
+      "ingredients": "Palta,  Philadelphia,  Zanahoria,      Pepino, Lechuga,    ",
+      "popular": "",
       "id": 8
     },
     {
@@ -62,6 +73,8 @@
       "category": "VEGGIE",
       "description": "Roll relleno de Queso Philadelphia, Rucula y Tomates Secos.",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2019/06/DSC_6522-1-scaled-510x340.jpg",
+      "ingredients": "  Philadelphia,          Rucula, Tomates,  ",
+      "popular": "",
       "id": 9
     },
     {
@@ -70,6 +83,8 @@
       "category": "URAMAKIS - ROLLS",
       "description": "Roll relleno de Salmón Cocido y un exquisito procesado de Mayonesa y Cebolla de Verdeo.",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza17-510x340.jpg",
+      "ingredients": " Salmón,             Mayonesa, Cebolla de Verdeo,",
+      "popular": "",
       "id": 10
     },
     {
@@ -78,6 +93,8 @@
       "category": "WOKBOX",
       "description": "Exquisita combinación de Arroz saborizado a con Salsa de Soja y Finas Hierbas, Zanahoria, Morron, Zapallito, Cebolla y Brotes de Soja. Adicionales Pollo, Lomo o Langostinos.",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/yakimeshi-1-510x340.jpg",
+      "ingredients": "   Salsa de Soja, Zanahoria, Morron, Zapallito, Cebolla, Brotes de Soja, Pollo,      ",
+      "popular": "",
       "id": 11
     },
     {
@@ -86,6 +103,7 @@
       "category": "URAMAKIS - ROLLS",
       "description": "Maki relleno de Salmón Cocido con un exquisito procesado de Mayonesa y Cebolla de Verdeo",
       "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/grill-1-510x340.jpg",
+      "ingredients": " Salmón,             Mayonesa, Cebolla de Verdeo,",
       "popular": "",
       "id": 12
     }
@@ -102,6 +120,20 @@
       "adminId": 1,
       "actualDate": "12-01-2023",
       "id": 1
+    },
+    {
+      "name": "Bahamas",
+      "price": "680",
+      "category": "URAMAKIS - ROLLS",
+      "description": "Roll relleno de Palta y Philadelphia envuelto en Salmón Rosado.",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza8-510x340.jpg",
+      "ingredients": "Palta, Salmón, Philadelphia,             ",
+      "popular": true,
+      "quantity": 1,
+      "productId": 1,
+      "adminId": 1,
+      "actualDate": "30-01-2023",
+      "id": 2
     }
   ],
   "userOrders": [
@@ -116,6 +148,7 @@
       "productId": 1,
       "userId": 2,
       "actualDate": "12-01-2023",
+      "userName": "Joni",
       "id": 1
     },
     {
@@ -129,6 +162,7 @@
       "productId": 2,
       "userId": 2,
       "actualDate": "12-01-2023",
+      "userName": "Joni",
       "id": 2
     },
     {
@@ -142,6 +176,7 @@
       "productId": 4,
       "userId": 2,
       "actualDate": "12-01-2023",
+      "userName": "Joni",
       "id": 3
     },
     {
@@ -155,6 +190,7 @@
       "productId": 4,
       "userId": 2,
       "actualDate": "12-01-2023",
+      "userName": "Joni",
       "id": 4
     },
     {
@@ -168,31 +204,8 @@
       "productId": 4,
       "userId": 2,
       "actualDate": "12-01-2023",
+      "userName": "Joni",
       "id": 5
-    },
-    {
-      "name": "Caiman",
-      "price": "550",
-      "category": "VEGGIE",
-      "description": "Roll relleno de Queso Philadelphia, Rucula y Tomates Secos.",
-      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2019/06/DSC_6522-1-scaled-510x340.jpg",
-      "quantity": 2,
-      "productId": 9,
-      "userId": 3,
-      "actualDate": "12-01-2023",
-      "id": 6
-    },
-    {
-      "name": "Yakimeshi",
-      "price": "380",
-      "category": "WOKBOX",
-      "description": "Exquisita combinación de Arroz saborizado a con Salsa de Soja y Finas Hierbas, Zanahoria, Morron, Zapallito, Cebolla y Brotes de Soja. Adicionales Pollo, Lomo o Langostinos.",
-      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/yakimeshi-1-510x340.jpg",
-      "quantity": 3,
-      "productId": 11,
-      "userId": 3,
-      "actualDate": "12-01-2023",
-      "id": 7
     },
     {
       "name": "Bahamas",
@@ -205,6 +218,7 @@
       "productId": 1,
       "userId": 2,
       "actualDate": "13-01-2023",
+      "userName": "Joni",
       "id": 8
     },
     {
@@ -218,7 +232,52 @@
       "productId": 1,
       "userId": 2,
       "actualDate": "24-01-2023",
+      "userName": "Joni",
       "id": 9
+    },
+    {
+      "name": "Grill",
+      "price": "250",
+      "category": "URAMAKIS - ROLLS",
+      "description": "Maki relleno de Salmón Cocido con un exquisito procesado de Mayonesa y Cebolla de Verdeo",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/grill-1-510x340.jpg",
+      "popular": "",
+      "userId": 2,
+      "quantity": 3,
+      "productId": 12,
+      "actualDate": "26-01-2023",
+      "userName": "Joni",
+      "id": 11
+    },
+    {
+      "name": "Bahamas",
+      "price": "680",
+      "category": "URAMAKIS - ROLLS",
+      "description": "Roll relleno de Palta y Philadelphia envuelto en Salmón Rosado.",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/pieza8-510x340.jpg",
+      "ingredients": "Palta, Salmón, Philadelphia,             ",
+      "popular": true,
+      "quantity": 1,
+      "productId": 1,
+      "userId": 2,
+      "actualDate": "31-01-2023",
+      "userName": "Joni",
+      "id": 12
+    },
+    {
+      "name": "Chop Suey",
+      "price": "670",
+      "category": "WOKBOX",
+      "description": "Exquisita combinacion de verduras al wok saborizado a con Salsa de Soja.  Zanahoria, Morron, Zapallito, Cebolla y Brotes de Soja. Adicionales Pollo, Lomo o Langostinos.",
+      "image": "https://www.sushi-lives.com.ar/wp-content/uploads/2017/09/chop-suey-1-510x340.jpg",
+      "ingredients": "   Salsa de Soja, Zanahoria, Morron, Zapallito, Cebolla, Brotes de Soja, Pollo,      ",
+      "popular": true,
+      "quantity": 3,
+      "productId": 4,
+      "userId": 4,
+      "actualDate": "2-11-2023",
+      "userName": "asd123",
+      "id": 13
     }
   ]
 }

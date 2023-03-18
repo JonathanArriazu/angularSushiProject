@@ -64,6 +64,8 @@ export class CartComponent implements OnInit {
       if (data && user) {
         let userInfo = JSON.parse(user);
         let userId = user && userInfo[0].id;
+        let userName = user && userInfo[0].name;
+        console.log(userName)
         let cartDataList = JSON.parse(data);
         let actualDate = this.date.getDate() + "-"+ this.date.getMonth()+1 + "-" +this.date.getFullYear();    
         cartDataList.forEach((product: Product) => {
@@ -71,7 +73,8 @@ export class CartComponent implements OnInit {
             ...product,
             productId: product.id,
             userId,
-            actualDate
+            actualDate,
+            userName
           };
           delete cartData.id;
           this.product.addUserOrders(cartData).subscribe((result) => {
@@ -82,7 +85,7 @@ export class CartComponent implements OnInit {
               () => (
                 (this.successfulPurchaseMessage = undefined),
                 this.removeAll(),
-                this.router.navigate(['/main'])
+                this.router.navigate(['/user-order-list'])
               ),
               2500
             );
@@ -109,7 +112,7 @@ export class CartComponent implements OnInit {
               () => (
                 (this.successfulPurchaseMessage = undefined),
                 this.removeAll(),
-                this.router.navigate(['/main'])
+                this.router.navigate(['/user-order-list'])
               ),
               2500
             );
@@ -117,7 +120,11 @@ export class CartComponent implements OnInit {
         });
       } else if (data && newUser) {        
         let userInfo = JSON.parse(newUser);
+        console.log(userInfo)
         let userId = newUser && userInfo.id;
+        console.log(userId)
+        let userName = newUser && userInfo.name;
+        console.log(userName)
         let cartDataList = JSON.parse(data);
         let actualDate = this.date.getDate() + "-"+ this.date.getMonth()+1 + "-" +this.date.getFullYear();    
         cartDataList.forEach((product: Product) => {
@@ -125,7 +132,8 @@ export class CartComponent implements OnInit {
             ...product,
             productId: product.id,
             userId,
-            actualDate
+            actualDate,
+            userName
           };
           delete cartData.id;
           this.product.addUserOrders(cartData).subscribe((result) => {
@@ -136,7 +144,7 @@ export class CartComponent implements OnInit {
               () => (
                 (this.successfulPurchaseMessage = undefined),
                 this.removeAll(),
-                this.router.navigate(['/main'])
+                this.router.navigate(['/user-order-list'])
               ),
               2500
             );

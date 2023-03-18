@@ -16,23 +16,37 @@
             <div>
                 <p>{{ productData.description }}</p>
             </div>
-            <div class="cart-options">
-
-                <div class="cart-order">
-                    <button (click)="Quantity('min')">-</button>
-                    <input class="text-center" type="text" value="{{ productQuantity }}">
-                    <button (click)="Quantity('max')">+</button>
+            <div class="cart-options" [ngSwitch]="adminOptions">
+                <div *ngSwitchCase="'default'">
+                    <div class="cart-order">
+                        <button (click)="Quantity('min')">-</button>
+                        <input class="text-center" type="text" value="{{ productQuantity }}">
+                        <button (click)="Quantity('max')">+</button>
+                    </div>
+                    <!-- <button class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button> -->
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <button *ngIf="!removeCart" class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button>
+                            <button *ngIf="removeCart" class="add-to-cart form-button" (click)="removeToCart(productData.id)">Eliminar del Carrito</button>
+                        </div>
+                        <div *ngIf="showFavstOptions">
+                            <button *ngIf="!removeFavs" class="add-to-cart form-button" (click)="addToFavs()">Agregar a Favoritos</button>
+                            <button *ngIf="removeFavs" class="add-to-cart form-button" (click)="removeToFavs(productData.id)">Eliminar de Favoritos</button>
+                        </div>
+                    </div>
                 </div>
-                <!-- <button class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button> -->
-                <div class="d-flex justify-content-around">
-                    <div>
-                        <button *ngIf="!removeCart" class="add-to-cart form-button" (click)="addToCart()">Agregar al Carrito</button>
-                        <button *ngIf="removeCart" class="add-to-cart form-button" (click)="removeToCart(productData.id)">Eliminar del Carrito</button>
+
+                <div *ngSwitchCase="'admin'">
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <button  class="add-to-cart form-button " routerLink="/admin-update-product/{{ productData.id }}">Editar Producto<fa-icon [icon]="editIcon"></fa-icon></button>
+                        </div>
+                        <div *ngIf="showFavstOptions">
+                            <button  class="add-to-cart form-button" (click)="deleteProduct(productData.id)">Eliminar Producto<fa-icon [icon]="deleteIcon"></fa-icon></button>
+                        </div>
+
                     </div>
-                    <div *ngIf="showFavstOptions">
-                        <button *ngIf="!removeFavs" class="add-to-cart form-button" (click)="addToFavs()">Agregar a Favoritos</button>
-                        <button *ngIf="removeFavs" class="add-to-cart form-button" (click)="removeToFavs(productData.id)">Eliminar de Favoritos</button>
-                    </div>
+                    <p class="p-message">{{ productMessage }}</p>
                 </div>
             </div>
         </div>

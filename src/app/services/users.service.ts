@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { Login, SignUp } from '../interfaces/data.interfaces';
+import { Location } from '@angular/common';
 
 
 @Injectable({
@@ -20,7 +21,7 @@ export class UserService {
     "admin" : true
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private location: Location) {}
 
   userSignUp(data: SignUp) {
     this.http
@@ -55,11 +56,15 @@ export class UserService {
         if( result.body?.length && result.body[0].hasOwnProperty('admin') ){
           this.invalidUserAuth.emit(false);
           localStorage.setItem('admin', JSON.stringify(result.body));
-          this.router.navigate(['admin-home']);
+          /* this.router.navigate(['admin-home']); */
+          this.location.back();
         } else if( result.body?.length) {
           this.invalidUserAuth.emit(false);         
           localStorage.setItem('user', JSON.stringify(result.body));
-          this.router.navigate(['/main']);
+          /* this.router.navigate(['/main']); */
+          this.location.back() 
+              
+          
         } else {
           this.invalidUserAuth.emit(true);
         }

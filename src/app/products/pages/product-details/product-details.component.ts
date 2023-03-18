@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { switchMap } from 'rxjs';
 import { Product } from 'src/app/interfaces/data.interfaces';
 import { ProductService } from 'src/app/services/product.service';
@@ -15,10 +16,15 @@ export class ProductDetailsComponent implements OnInit {
   removeCart = false;
   removeFavs = false;
   showFavstOptions = false;
+  adminOptions: string = 'default'
+  productMessage: undefined | string;
+  deleteIcon=faTrash;
+  editIcon= faEdit;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private product: ProductService
+    private product: ProductService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -71,7 +77,8 @@ export class ProductDetailsComponent implements OnInit {
         }
       }
     } else if (localStorage.getItem('admin')) {
-      let favsData = localStorage.getItem('localFavs');
+      this.adminOptions= 'admin'
+      /* let favsData = localStorage.getItem('localFavs');
       if (productId && favsData) {
         let items = JSON.parse(favsData);
         let admin = localStorage.getItem('admin');
@@ -91,7 +98,7 @@ export class ProductDetailsComponent implements OnInit {
             }
           });
         }
-      }
+      } */
     } else if (localStorage.getItem('newuser')) {
       let favsData = localStorage.getItem('localFavs');
       if (productId && favsData) {
@@ -181,9 +188,11 @@ export class ProductDetailsComponent implements OnInit {
         if (user) {
           let userInfo = JSON.parse(user);
           let userId = user && userInfo[0].id;
+          let userName = user && userInfo[0].name;
           let favsData = {
             ...this.productData,
             userId,
+            userName
           };
           this.productData = favsData;
           this.product.addToFavsProduct(this.productData);
@@ -199,9 +208,11 @@ export class ProductDetailsComponent implements OnInit {
         } else if (newUser) {
           let userInfo = JSON.parse(newUser);
           let userId = newUser && userInfo.id;
+          let userName = newUser && userInfo.name;
           let favsData = {
             ...this.productData,
             userId,
+            userName
           };
           this.productData = favsData;
           this.product.addToFavsProduct(this.productData);
@@ -233,5 +244,15 @@ export class ProductDetailsComponent implements OnInit {
   removeToFavs(productId: number) {
     this.product.removeItemFromFavs(productId);
     this.removeFavs = false;
+  }
+
+  deleteProduct(productId: number){
+    this.product.deleteProduct(productId)
+      .subscribe( ( result ) => {
+        if(result){
+          this.productMessage='Producto eliminado correctamente';
+        }
+        setTimeout(() => (this.productMessage = undefined, this.router.navigate(['/admin-home'])), 1500)
+      })
   }
 }

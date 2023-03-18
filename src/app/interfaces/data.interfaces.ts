@@ -17,7 +17,8 @@ export interface Login {
     image: string,
     id: number,
     popular: boolean,
-    quantity: undefined | number
+    quantity: undefined | number,
+    ingredients: string
  }
 
  export interface UserCart {
@@ -31,7 +32,8 @@ export interface Login {
     quantity: undefined | number,
     userId: number,
     productId: number,
-    actualDate: string
+    actualDate: string,
+    userName: string
  }
 
  export interface AdminCart {

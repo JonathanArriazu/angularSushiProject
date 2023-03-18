@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/users.service';
 
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/users.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor( private adminService: UserService ) {}
+  constructor( private adminService: UserService, private router: Router ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -17,6 +17,8 @@ export class AuthGuard implements CanActivate {
 
       if (localStorage.getItem('admin')) {
         return true
+      } else if (localStorage.getItem('user') || localStorage.getItem('newuser')) {
+        this.router.navigate(['/main']);
       }
     
     return this.adminService.isAdminLoggedIn;

@@ -3,7 +3,7 @@
   <p class="p-message">{{ addProductMessage }}</p>
   <form
     #addProduct="ngForm"
-    (ngSubmit)="submit(addProduct.value)"
+    (ngSubmit)="submit(c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16, addProduct.value )"
     class="common-form"
   >
     <input
@@ -46,6 +46,33 @@
       placeholder="Ingrese URL de la imagen del producto"
     />
 
+
+    <span>Seleccione los ingredientes:</span>
+    
+    <!-- Palta Salmón Philadelphia Salsa de Soja Zanahoria Morron Zapallito Cebolla Brotes de Soja Pollo Pepino Lechuga Rucula Tomates Mayonesa Cebolla de Verdeo -->
+    
+    <div class="d-flex flex-wrap">
+      <div class="ingredient-col">
+        <input ngModel name="ingredients" type="checkbox" id="checkbox1" #c1/><label for="checkbox1">Palta</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox2" #c2/><label for="checkbox2">Salmón</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox3" #c3/><label for="checkbox3">Philadelphia</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox4" #c4/><label for="checkbox4">Salsa de Soja</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox5" #c5/><label for="checkbox5">Zanahoria</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox6" #c6/><label for="checkbox6">Morron</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox7" #c7/><label for="checkbox7">Zapallito</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox7" #c8/><label for="checkbox7">Cebolla</label><br>
+      </div>
+      <div class="ingredient-col">
+        <input ngModel name="ingredients" type="checkbox" id="checkbox8" #c9/><label for="checkbox8">Brotes de Soja</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox9" #c10/><label for="checkbox9">Pollo</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox10" #c11/><label for="checkbox10">Pepino</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox11" #c12/><label for="checkbox11">Lechuga</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox12" #c13/><label for="checkbox12">Rucula</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox13" #c14/><label for="checkbox13">Tomates</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox14" #c15/><label for="checkbox14">Mayonesa</label><br>
+        <input ngModel name="ingredients" type="checkbox" id="checkbox14" #c16/><label for="checkbox14">Cebolla de Verdeo</label><br>
+      </div>
+    </div>
       <div class="form-check">
         <input
           class="form-check-input"
@@ -58,7 +85,6 @@
           >Producto popular</label
         >
       </div>
-
 
     <button class="form-button">Agregar Producto</button>
   </form>
